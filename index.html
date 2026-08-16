@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- SEO -->
+  <title>COGIT | Tecnologia, Software e Soluções Digitais</title>
+  <meta name="description" content="Tecnologia, estratégia e inovação para transformar problemas e ideias em sistemas, plataformas, SaaS, automações e produtos digitais.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cmkcogit.com.br">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="COGIT | Tecnologia, Software e Soluções Digitais">
+  <meta property="og:description" content="Tecnologia, estratégia e inovação para transformar problemas e ideias em sistemas, plataformas, SaaS, automações e produtos digitais.">
+  <meta property="og:url" content="https://cmkcogit.com.br">
+  <meta property="og:site_name" content="CMKCOGIT">
+  <meta property="og:locale" content="pt_BR">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="COGIT | Tecnologia, Software e Soluções Digitais">
+  <meta name="twitter:description" content="Tecnologia, estratégia e inovação para transformar problemas e ideias em sistemas, plataformas, SaaS, automações e produtos digitais.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Schema.org - Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "CMKCOGIT",
+    "alternateName": "COGIT",
+    "url": "https://cmkcogit.com.br",
+    "description": "Tecnologia, estratégia e inovação para transformar problemas e ideias em sistemas, plataformas, SaaS, automações e produtos digitais.",
+    "sameAs": []
+  }
+  </script>
+
+  <!-- Schema.org - Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Desenvolvimento de Software e Soluções Digitais",
+    "provider": {
+      "@type": "Organization",
+      "name": "CMKCOGIT"
+    },
+    "description": "Desenvolvimento de sites, sistemas, SaaS, plataformas, automações, IA, MVPs e consultoria tecnológica."
+  }
+  </script>
+
+  <!-- Schema.org - FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quanto custa um projeto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Algumas soluções possuem investimento inicial definido. Projetos personalizados são avaliados de acordo com escopo e complexidade."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "O valor mostrado no configurador é definitivo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não. O configurador apresenta uma estimativa baseada no escopo padrão. O valor final é confirmado após análise da necessidade."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Posso combinar diferentes serviços?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. O configurador permite combinar soluções e adicionais para criar uma proposta personalizada."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Preciso saber qual tecnologia utilizar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Não. Basta explicar o problema ou objetivo. A COGIT ajuda a definir a abordagem mais adequada."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Vocês trabalham com projetos personalizados?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. Sistemas, plataformas, SaaS, IA e automações podem ser estruturados sob medida."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Existe suporte depois da entrega?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sim. Acompanhamento, manutenção e evolução podem ser definidos conforme a solução."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════
+       HEADER
+       ═══════════════════════════════════════ -->
+  <header class="header" id="header" role="banner">
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="CMKCOGIT - Página inicial">
+        <img src="assets/images/logo-white.png" alt="CMKCOGIT" class="logo-img">
+      </a>
+
+      <nav class="nav" role="navigation" aria-label="Menu principal">
+        <a href="#solutions" class="nav-link">Soluções</a>
+        <a href="#pricing" class="nav-link">Investimentos</a>
+        <a href="#configurator" class="nav-link">Monte sua solução</a>
+        <a href="#process" class="nav-link">Como trabalhamos</a>
+        <a href="#cases" class="nav-link">Projetos</a>
+        <a href="#about" class="nav-link">Sobre</a>
+      </nav>
+
+      <a href="#contact" class="btn btn-primary btn-sm header-cta">Fale conosco</a>
+
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Menu mobile">
+    <a href="#solutions" class="nav-link">Soluções</a>
+    <a href="#pricing" class="nav-link">Investimentos</a>
+    <a href="#configurator" class="nav-link">Monte sua solução</a>
+    <a href="#process" class="nav-link">Como trabalhamos</a>
+    <a href="#cases" class="nav-link">Projetos</a>
+    <a href="#about" class="nav-link">Sobre</a>
+    <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Fale conosco</a>
+  </nav>
+
+
+  <main role="main">
+
+    <!-- ═══════════════════════════════════════
+         01 — HERO
+         ═══════════════════════════════════════ -->
+    <section class="hero" id="hero" aria-label="Apresentação da COGIT">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-bg-gradient"></div>
+
+      <div class="container container-wide">
+        <div class="hero-inner">
+
+          <!-- BACKDROP VISUAL ELEMENTS -->
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-text-glow"></div>
+            
+            <!-- SVG connector lines (updated for full screen) -->
+            <svg class="hero-connections-svg" viewBox="0 0 1000 800" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+              <!-- Center Hex to Cards connections -->
+              <line x1="500" y1="400" x2="150" y2="150" stroke="url(#lg1)" stroke-width="1" stroke-dasharray="5 4"/>
+              <line x1="500" y1="400" x2="850" y2="150" stroke="url(#lg1)" stroke-width="1" stroke-dasharray="5 4"/>
+              <line x1="500" y1="400" x2="100" y2="450" stroke="url(#lg1)" stroke-width="1" stroke-dasharray="5 4"/>
+              <line x1="500" y1="400" x2="900" y2="450" stroke="url(#lg1)" stroke-width="1" stroke-dasharray="5 4"/>
+              <line x1="500" y1="400" x2="200" y2="700" stroke="url(#lg1)" stroke-width="1" stroke-dasharray="5 4"/>
+              <line x1="500" y1="400" x2="800" y2="700" stroke="url(#lg1)" stroke-width="1" stroke-dasharray="5 4"/>
+              <defs>
+                <linearGradient id="lg1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#A79BFF" stop-opacity="0.3"/>
+                  <stop offset="100%" stop-color="#4A3DDB" stop-opacity="0.05"/>
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <!-- Central Hexagon -->
+            <div class="hero-hexagon">
+              <div class="hero-hexagon-inner">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                  <path d="M20 4L35 12.5V27.5L20 36L5 27.5V12.5L20 4Z" stroke="#A79BFF" stroke-width="1.5" fill="rgba(74,61,219,0.2)"/>
+                  <text x="20" y="26" text-anchor="middle" font-family="Inter,sans-serif" font-weight="800" font-size="16" fill="#A79BFF">C</text>
+                </svg>
+              </div>
+              <div class="hero-hexagon-ring"></div>
+              <div class="hero-hexagon-ring hero-hexagon-ring-2"></div>
+            </div>
+
+            <!-- SITE (Mid-Left) -->
+            <div class="hero-card hero-card-site">
+              <div class="hero-card-header">
+                <span class="hero-card-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span>
+                <span class="hero-card-label">SITE</span>
+              </div>
+              <div class="hero-card-body">
+                <div class="hero-card-thumb"></div>
+              </div>
+            </div>
+
+            <!-- SISTEMA (Top-Right) -->
+            <div class="hero-card hero-card-sistema">
+              <div class="hero-card-header">
+                <span class="hero-card-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></span>
+                <span class="hero-card-label">SISTEMA</span>
+              </div>
+              <div class="hero-card-body" style="display:flex;align-items:center;gap:8px">
+                <svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="13" fill="none" stroke="rgba(74,61,219,0.18)" stroke-width="5"/><circle cx="18" cy="18" r="13" fill="none" stroke="#4A3DDB" stroke-width="5" stroke-dasharray="52 30" stroke-linecap="round" transform="rotate(-90 18 18)"/></svg>
+                <div style="display:flex;align-items:flex-end;gap:3px;height:32px">
+                  <div style="width:7px;height:22px;background:rgba(74,61,219,0.8);border-radius:2px"></div>
+                  <div style="width:7px;height:32px;background:rgba(74,61,219,0.6);border-radius:2px"></div>
+                  <div style="width:7px;height:16px;background:rgba(74,61,219,0.4);border-radius:2px"></div>
+                  <div style="width:7px;height:26px;background:rgba(74,61,219,0.7);border-radius:2px"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SAAS (Top-Left) -->
+            <div class="hero-card hero-card-saas">
+              <div class="hero-card-header">
+                <span class="hero-card-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></span>
+                <span class="hero-card-label">SAAS</span>
+              </div>
+              <div class="hero-card-body" style="padding-top:4px">
+                <svg width="108" height="38" viewBox="0 0 108 38" fill="none">
+                  <polyline points="0,30 18,22 36,26 54,14 72,19 90,8 108,14" stroke="#4A3DDB" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                  <polygon points="0,30 18,22 36,26 54,14 72,19 90,8 108,14 108,38 0,38" fill="rgba(74,61,219,0.07)"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- AUTOMAÇÃO (Mid-Right) -->
+            <div class="hero-card hero-card-automacao">
+              <div class="hero-card-header">
+                <span class="hero-card-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+                <span class="hero-card-label">AUTOMAÇÃO</span>
+              </div>
+              <div class="hero-card-body hero-card-flow">
+                <div class="hero-card-flow-node"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg></div>
+                <div class="hero-card-flow-arrow">→</div>
+                <div class="hero-card-flow-node hero-card-flow-diamond"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="1" transform="rotate(45 12 12)"/></svg></div>
+                <div class="hero-card-flow-arrow">→</div>
+                <div class="hero-card-flow-node hero-card-flow-check"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#4A3DDB" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+              </div>
+            </div>
+
+            <!-- IA (Bottom-Left) -->
+            <div class="hero-card hero-card-ia">
+              <div class="hero-card-header">
+                <span class="hero-card-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
+                <span class="hero-card-label">IA</span>
+              </div>
+              <div class="hero-card-body hero-card-ia-flow">
+                <span class="hero-card-pill">INPUT</span>
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+                  <circle cx="15" cy="15" r="5" fill="rgba(74,61,219,0.15)" stroke="#4A3DDB" stroke-width="1"/>
+                  <circle cx="7" cy="10" r="2" fill="rgba(167,155,255,0.35)"/>
+                  <circle cx="23" cy="10" r="2" fill="rgba(167,155,255,0.35)"/>
+                  <circle cx="7" cy="20" r="2" fill="rgba(167,155,255,0.35)"/>
+                  <circle cx="23" cy="20" r="2" fill="rgba(167,155,255,0.35)"/>
+                  <line x1="9" y1="10" x2="12" y2="13" stroke="#A79BFF" stroke-width="0.8" opacity="0.6"/>
+                  <line x1="21" y1="10" x2="18" y2="13" stroke="#A79BFF" stroke-width="0.8" opacity="0.6"/>
+                  <line x1="9" y1="20" x2="12" y2="17" stroke="#A79BFF" stroke-width="0.8" opacity="0.6"/>
+                  <line x1="21" y1="20" x2="18" y2="17" stroke="#A79BFF" stroke-width="0.8" opacity="0.6"/>
+                </svg>
+                <span class="hero-card-pill">OUTPUT</span>
+              </div>
+            </div>
+
+            <!-- MVP (Bottom-Right) -->
+            <div class="hero-card hero-card-mvp">
+              <div class="hero-card-header">
+                <span class="hero-card-icon"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/></svg></span>
+                <span class="hero-card-label">MVP</span>
+              </div>
+              <div class="hero-card-body hero-card-checklist">
+                <div class="hero-card-check-item"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4A3DDB" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><div class="hero-card-check-bar" style="width:68px"></div></div>
+                <div class="hero-card-check-item"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#4A3DDB" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><div class="hero-card-check-bar" style="width:50px;opacity:.65"></div></div>
+                <div class="hero-card-check-item"><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#A79BFF" stroke-width="2" opacity="0.35"><circle cx="12" cy="12" r="8"/></svg><div class="hero-card-check-bar" style="width:60px;opacity:.25"></div></div>
+              </div>
+            </div>
+
+            <!-- Ambient dots -->
+            <div class="hero-dot hero-dot-1"></div>
+            <div class="hero-dot hero-dot-2"></div>
+            <div class="hero-dot hero-dot-3"></div>
+            <div class="hero-dot hero-dot-4"></div>
+
+          </div>
+
+          <!-- FRONT CONTENT -->
+          <div class="hero-content">
+            <div class="hero-badge hero-animate-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hero-badge-icon"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Pensamos antes de construir.
+            </div>
+            <span class="hero-label-top hero-animate-3">PENSAR •   ESTRUTURAR • CONSTRUIR</span>
+            
+            <h1 class="hero-animate-4">
+              <span class="hero-title-main">Desenvolvimento de Software</span><br>
+              <span class="hero-title-highlight"><span class="hero-title-connector">e</span> Soluções Digitais</span>
+            </h1>
+
+            <p class="hero-support-line hero-animate-5">para empresas que querem evoluir com tecnologia sob medida.</p>
+            
+            <p class="hero-subtitle hero-animate-6">A COGIT cria sites, sistemas, SaaS, automações, inteligência artificial e MVPs para resolver problemas, otimizar processos e gerar novas oportunidades de negócio.</p>
+
+            <div class="hero-ctas hero-animate-7">
+              <a href="#contact" class="btn btn-primary btn-lg" id="cta-hero-contact">
+                Fale sobre seu projeto
+                <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+              <a href="#configurator" class="btn btn-secondary btn-lg" id="cta-hero-pricing">
+                Monte sua solução
+              </a>
+            </div>
+
+            <div class="hero-capacities hero-animate-8">
+              <span>Sites</span><span class="dot"></span>
+              <span>Sistemas</span><span class="dot"></span>
+              <span>SaaS</span><span class="dot"></span>
+              <span>Automação</span><span class="dot"></span>
+              <span>IA</span><span class="dot"></span>
+              <span>MVPs</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         02 — IDENTIFICAÇÃO DO DESAFIO
+         ═══════════════════════════════════════ -->
+    <section class="section section-neutral" id="challenge" aria-label="O que você precisa?">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label" style="justify-content: center;">O QUE VOCÊ PRECISA?</span>
+          <h2>Por onde podemos começar?</h2>
+          <p class="text-body-lg" style="max-width: 660px; margin: var(--space-4) auto 0;">Você não precisa saber qual tecnologia precisa. Comece pelo que quer melhorar, criar ou resolver.</p>
+        </div>
+
+        <div class="challenge-grid" id="challenge-grid">
+          <!-- Rendered by components.js -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         03 — FORMAS DE COMEÇAR / INVESTIMENTO
+         ═══════════════════════════════════════ -->
+    <section class="section" id="pricing" aria-label="Formas de começar">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label" style="justify-content: center;">FORMAS DE COMEÇAR</span>
+          <h2 style="font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)); letter-spacing: var(--tracking-tight);">Escolha o ponto de partida.</h2>
+          <p class="text-body-lg" style="max-width: 700px; margin: var(--space-4) auto 0;">Cada projeto começa por uma necessidade diferente. Encontre a estrutura que mais se aproxima do seu desafio.</p>
+          <p class="text-small" style="max-width: 700px; margin: var(--space-4) auto 0; font-size: var(--text-xs); color: var(--text-tertiary);">Os valores apresentados consideram um escopo inicial. Funcionalidades, integrações e necessidades específicas podem alterar o investimento.</p>
+        </div>
+
+        <div class="pricing-grid" id="pricing-grid">
+          <!-- Rendered by components.js -->
+        </div>
+
+        <!-- Orientation Block (Transition) -->
+        <div class="orientation-block reveal" style="text-align: center; margin-top: var(--space-20); padding-top: var(--space-16); border-top: 1px solid rgba(15, 27, 51, 0.05);">
+          <h2 style="font-size: var(--text-3xl); margin-bottom: var(--space-4); font-weight: var(--fw-bold); letter-spacing: var(--tracking-tight);">Não encontrou exatamente o que precisa?</h2>
+          <p class="text-body" style="color: var(--text-secondary); max-width: 600px; margin: 0 auto var(--space-8);">Combine serviços e funcionalidades para criar uma configuração mais próxima do seu projeto e visualizar uma estimativa inicial.</p>
+          
+          <div style="display: flex; flex-direction: column; align-items: center; gap: var(--space-4);">
+            <a href="#configurator" class="btn btn-primary btn-lg" style="background-color: var(--purple); border-color: var(--purple); width: 100%; max-width: 320px; justify-content: center;">Monte sua solução <span>→</span></a>
+            <a href="#contact" class="btn btn-secondary" style="width: 100%; max-width: 320px; justify-content: center;">Falar com um especialista</a>
+          </div>
+        </div>
+
+        <p class="text-small reveal" style="text-align: center; max-width: 680px; margin: var(--space-12) auto 0; font-size: 11px; color: var(--text-tertiary);">
+          Os valores apresentados correspondem a estruturas iniciais. Escopo, funcionalidades, integrações e necessidades específicas podem alterar o investimento final.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         04 — MONTE SUA SOLUÇÃO (CONFIGURADOR)
+         ═══════════════════════════════════════ -->
+    <section class="section section-neutral" id="configurator" aria-label="Monte sua solução">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label" style="justify-content: center;">CONFIGURE SEU PROJETO</span>
+          <h2 style="font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)); letter-spacing: var(--tracking-tight);">Monte sua solução.</h2>
+          <p class="text-body-lg" style="max-width: 660px; margin: var(--space-4) auto 0;">Combine serviços e funcionalidades para ter uma estimativa inicial do seu projeto.</p>
+          <p class="text-small" style="max-width: 700px; margin: var(--space-4) auto 0; font-size: var(--text-xs); color: var(--text-tertiary);">Os valores apresentados consideram o escopo base de cada serviço. Necessidades específicas ou funcionalidades avançadas são analisadas individualmente pela COGIT.</p>
+        </div>
+
+        <div class="configurator-container" id="configurator-app">
+          <!-- Rendered by configurator.js -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         05 — SOLUÇÕES
+         ═══════════════════════════════════════ -->
+    <section class="section" id="solutions" aria-label="Soluções">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-label">Soluções</span>
+          <h2>O que podemos construir com você?</h2>
+          <p class="text-body-lg" style="max-width: 680px; margin-top: var(--space-4);">Da presença digital à construção de sistemas e produtos complexos, estruturamos tecnologia para diferentes desafios.</p>
+        </div>
+
+        <div class="solutions-grid" id="services-grid">
+          <!-- Rendered by components.js -->
+        </div>
+
+        <!-- NOTA GERAL SOBRE PREÇOS -->
+        <p class="text-small reveal" style="text-align: center; max-width: 600px; margin: var(--space-8) auto 0; font-size: 13px; color: var(--text-tertiary);">
+          Os valores apresentados correspondem ao escopo inicial de cada solução. Funcionalidades, integrações e necessidades específicas podem alterar o investimento.
+        </p>
+
+        <!-- TRANSIÇÃO DE SOLUÇÕES -->
+        <div class="solutions-transition reveal" style="margin-top: var(--space-16); padding-top: var(--space-12); border-top: 1px solid rgba(15, 27, 51, 0.05);">
+          <div class="grid grid-2" style="align-items: center;">
+            <div>
+              <span class="section-label" style="margin-bottom: var(--space-3);">PRECISA DE MAIS DE UMA SOLUÇÃO?</span>
+              <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-4); letter-spacing: var(--tracking-tight);">Monte uma solução para o seu projeto.</h2>
+              <p class="text-body" style="color: var(--text-secondary); max-width: 500px;">Combine diferentes serviços e funcionalidades para ter uma estimativa inicial de investimento de acordo com o que precisa.</p>
+            </div>
+            <div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: var(--space-4);">
+              <a href="#configurator" class="btn btn-primary" style="background-color: var(--purple); border-color: var(--purple); width: 100%; max-width: 280px; justify-content: center;">Montar minha solução <span>→</span></a>
+              <a href="#contact" class="btn btn-secondary-dark" style="width: 100%; max-width: 280px; justify-content: center; background: transparent;">Falar com um especialista</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         06 — METODOLOGIA (SCROLL INTERATIVO)
+         ═══════════════════════════════════════ -->
+    <section class="section process-section" id="process" aria-label="Metodologia">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-label" style="color: var(--purple); font-weight: var(--fw-bold);">METODOLOGIA</span>
+          <h2 style="font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)); letter-spacing: var(--tracking-tight);">Da ideia ao produto.</h2>
+          <p class="text-body-lg" style="max-width: 650px; margin-top: var(--space-4);">
+            Transformamos desafios em soluções através de um processo que combina estratégia, validação e tecnologia.
+          </p>
+        </div>
+
+        <div class="process-wrapper">
+          <!-- LEFT: Scrolling Steps -->
+          <div class="process-steps-container" id="process-steps-container">
+            <!-- Rendered by components.js -->
+          </div>
+
+          <!-- RIGHT: Sticky Visual Graphic -->
+          <div class="process-visual-container">
+            <div class="process-visual-sticky">
+              <div class="process-visual-graphic" id="process-visual-graphic">
+                
+                <!-- Background grid/pattern -->
+                <div class="visual-grid-bg"></div>
+
+                <!-- Abstract dynamic elements (controlled by CSS .state-X classes) -->
+                <div class="v-layer v-layer-dots">
+                  <div class="v-dot v-dot-1"></div>
+                  <div class="v-dot v-dot-2"></div>
+                  <div class="v-dot v-dot-3"></div>
+                  <div class="v-dot v-dot-4"></div>
+                  <div class="v-dot v-dot-5"></div>
+                </div>
+
+                <div class="v-layer v-layer-lines">
+                  <svg width="100%" height="100%" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" fill="none" class="v-svg-lines">
+                    <path d="M 50 200 Q 150 100, 200 200 T 350 200" stroke="var(--lilac)" stroke-width="2" stroke-dasharray="4 4" class="v-path-1" />
+                    <path d="M 100 300 Q 200 250, 200 200 T 300 100" stroke="var(--lilac)" stroke-width="2" class="v-path-2" />
+                  </svg>
+                </div>
+
+                <div class="v-layer v-layer-blocks">
+                  <div class="v-block v-block-1"></div>
+                  <div class="v-block v-block-2"></div>
+                  <div class="v-block v-block-3"></div>
+                </div>
+
+                <div class="v-layer v-layer-ui">
+                  <div class="v-ui-window">
+                    <div class="v-ui-header">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="v-ui-body">
+                      <div class="v-ui-line"></div>
+                      <div class="v-ui-line short"></div>
+                      <div class="v-ui-box"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="v-layer v-layer-data">
+                  <div class="v-chart-bar b1"></div>
+                  <div class="v-chart-bar b2"></div>
+                  <div class="v-chart-bar b3"></div>
+                  <div class="v-chart-line">
+                    <svg width="100%" height="100%" viewBox="0 0 100 50" preserveAspectRatio="none">
+                      <polyline points="0,40 30,20 60,30 100,5" fill="none" stroke="var(--purple)" stroke-width="3" />
+                    </svg>
+                  </div>
+                </div>
+
+                <!-- COGIT Core (Center) -->
+                <div class="visual-core">
+                  <div class="visual-core-inner">
+                    <div class="visual-core-pulse"></div>
+                  </div>
+                </div>
+                
+                <!-- Conceptual phrase -->
+                <div class="visual-conceptual-phrase">
+                  <h3>Pensar antes de construir.</h3>
+                  <p>É assim que transformamos tecnologia em <span style="color: var(--purple); font-weight: var(--fw-bold);">solução</span>.</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TRANSIÇÃO DE METODOLOGIA -->
+        <div class="process-transition reveal" style="margin-top: var(--space-16); padding-top: var(--space-12); border-top: 1px solid rgba(15, 27, 51, 0.05);">
+          <div class="grid grid-2" style="align-items: center;">
+            <div>
+              <h2 style="font-size: var(--text-2xl); margin-bottom: var(--space-4); letter-spacing: var(--tracking-tight);">Do problema à evolução.</h2>
+              <p class="text-body" style="color: var(--text-secondary); max-width: 500px;">Cada etapa existe para reduzir incertezas e construir uma solução mais adequada ao desafio.</p>
+            </div>
+            <div style="text-align: right;display: flex; flex-direction: column; align-items: center;">
+              <p>Tem um projeto?</p>  
+              <a href="#contact" class="btn" style="background: transparent; color: var(--purple); border: none; font-weight: var(--fw-bold); font-size: var(--text-md);padding: 0;"> Conte para a COGIT <span>→</span></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         07 — CASES / PROJETOS
+         ═══════════════════════════════════════ -->
+    <section class="section section-neutral" id="cases" aria-label="Cases e projetos">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-label">PROJETOS</span>
+          <h2>Problemas reais. Soluções construídas.</h2>
+        </div>
+
+        <div class="cases-grid" id="cases-grid">
+          <!-- Rendered by components.js -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         08 — COGIT / VISÃO / IMPACTO
+         ═══════════════════════════════════════ -->
+    <section class="section" id="about" aria-label="Sobre a COGIT">
+      <div class="container">
+        <div class="about-content reveal">
+          <span class="section-label">COGIT</span>
+          <h2>Tecnologia começa antes do código.</h2>
+          <p>A COGIT atua entre estratégia, desenvolvimento e inovação, ajudando empresas, profissionais e novos negócios a transformar ideias e desafios em soluções digitais viáveis e capazes de gerar valor.</p>
+          <p class="about-emphasis">Para nós, tecnologia não começa no código. Começa na compreensão do problema.</p>
+        </div>
+
+        <!-- Impact Areas -->
+        <div class="about-impact reveal" style="margin-top: var(--space-20); padding-top: var(--space-16); border-top: 1px solid rgba(15, 27, 51, 0.05);">
+          <div class="section-header">
+            <span class="section-label">IMPACTO</span>
+            <h3 style="font-size: var(--text-2xl); letter-spacing: var(--tracking-tight); margin-bottom: var(--space-4);">Áreas de interesse e impacto</h3>
+            <p class="text-body" style="max-width: 560px; color: var(--text-secondary);">Além dos projetos para clientes, acreditamos na tecnologia como ferramenta de transformação em áreas que precisam evoluir.</p>
+          </div>
+          <div class="impact-grid" id="impact-grid">
+            <!-- Rendered by components.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         09 — FAQ
+         ═══════════════════════════════════════ -->
+    <section class="section section-neutral" id="faq" aria-label="Perguntas frequentes">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label" style="justify-content: center;">FAQ</span>
+          <h2>Perguntas frequentes</h2>
+        </div>
+
+        <div class="faq-list" id="faq-list" role="list">
+          <!-- Rendered by components.js -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         10 — CTA FINAL
+         ═══════════════════════════════════════ -->
+    <section class="section section-lg cta-final" id="cta-final" aria-label="Entre em contato">
+      <div class="container">
+        <div class="cta-final-content reveal">
+          <span class="section-label" style="justify-content: center;">TEM ALGO PARA CONSTRUIR?</span>
+          <h2>Conte o problema.<br>Vamos pensar na solução.</h2>
+          <p>Você não precisa chegar com a tecnologia definida. Comece contando o que precisa melhorar, criar ou resolver.</p>
+          <div class="cta-final-buttons">
+            <a href="#contact" class="btn btn-primary btn-lg" id="cta-final-contact">Falar com a COGIT →</a>
+            <a href="#configurator" class="btn btn-secondary btn-lg" id="cta-final-configurator">Montar minha solução</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════
+         FORMULÁRIO COMERCIAL
+         ═══════════════════════════════════════ -->
+    <section class="section" id="contact" aria-label="Formulário de contato">
+      <div class="container">
+        <div class="section-header center reveal">
+          <span class="section-label" style="justify-content: center;">Contato</span>
+          <h2>Fale sobre seu projeto</h2>
+          <p class="text-body-lg">Conte o que você precisa construir. Vamos entender e propor o melhor caminho.</p>
+        </div>
+
+        <div class="contact-form">
+          <form id="contact-form" novalidate>
+            <div class="form-grid">
+
+              <div class="form-group">
+                <label class="form-label" for="name">Nome <span class="required">*</span></label>
+                <input class="form-input" type="text" id="name" name="name" placeholder="Seu nome" required autocomplete="name">
+                <span class="form-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="company">Empresa</label>
+                <input class="form-input" type="text" id="company" name="company" placeholder="Nome da empresa" autocomplete="organization">
+                <span class="form-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">E-mail <span class="required">*</span></label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+                <span class="form-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="whatsapp">WhatsApp <span class="required">*</span></label>
+                <input class="form-input" type="tel" id="whatsapp" name="whatsapp" placeholder="(00) 00000-0000" required autocomplete="tel">
+                <span class="form-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="project-type">Tipo de projeto <span class="required">*</span></label>
+                <select class="form-select" id="project-type" name="project-type" required>
+                  <!-- Options rendered by components.js -->
+                </select>
+                <span class="form-error"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="budget-range">Faixa de investimento</label>
+                <select class="form-select" id="budget-range" name="budget-range">
+                  <!-- Options rendered by components.js -->
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label class="form-label" for="description">Conte brevemente o que você precisa <span class="required">*</span></label>
+                <textarea class="form-textarea" id="description" name="description" placeholder="Descreva seu projeto, problema ou ideia..." required></textarea>
+                <span class="form-error"></span>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg form-submit">
+              Enviar projeto
+              <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </button>
+          </form>
+
+          <!-- Success State -->
+          <div class="form-success" id="form-success" role="alert">
+            <div class="form-success-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Projeto enviado!</h3>
+            <p>Recebemos sua mensagem. Em breve entraremos em contato para entender melhor o seu projeto.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════ -->
+  <footer class="footer" id="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          <a href="#" class="logo" aria-label="CMKCOGIT" style="display: flex; align-items: center;">
+            <img src="assets/images/logo-white.png" alt="CMKCOGIT" class="logo-img">
+          </a>
+          <p class="footer-tagline" style="font-size: var(--text-lg); margin-top: var(--space-4);">Pensamos antes de construir.</p>
+          <p class="footer-sub-tagline" style="font-family: var(--font-heading); font-size: 10px; letter-spacing: 0.1em; color: var(--text-tertiary); margin-bottom: var(--space-4); text-transform: uppercase;">Pensar. Estruturar. Construir.</p>
+          <p class="footer-description">Tecnologia, estratégia e inovação para transformar problemas e ideias em soluções digitais.</p>
+          <div class="footer-social" id="footer-social">
+            <!-- Rendered by components.js -->
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Soluções</h4>
+          <div class="footer-links">
+            <a href="#solutions">Sistemas Personalizados</a>
+            <a href="#solutions">SaaS</a>
+            <a href="#solutions">Automação</a>
+            <a href="#solutions">Sites Institucionais</a>
+            <a href="#solutions">Landing Pages</a>
+            <a href="#solutions">IA</a>
+            <a href="#solutions">Outras Soluções</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Empresa</h4>
+          <div class="footer-links">
+            <a href="#about">Sobre</a>
+            <a href="#process">Como trabalhamos</a>
+            <a href="#pricing">Investimentos</a>
+            <a href="#configurator">Monte sua solução</a>
+            <a href="#cases">Projetos</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Contato</h4>
+          <div class="footer-links">
+            <a href="#contact">Fale conosco</a>
+            <a href="#configurator">Monte sua solução</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; COGIT — Todos os direitos reservados.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Política de Privacidade</a>
+          <a href="#">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ═══════════════════════════════════════
+       WHATSAPP FLOAT
+       ═══════════════════════════════════════ -->
+  <div class="whatsapp-float" id="whatsapp-float" aria-label="Contato via WhatsApp">
+    <button class="whatsapp-btn" id="whatsapp-float-btn" aria-label="Abrir WhatsApp">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </button>
+    <span class="whatsapp-tooltip">Vamos conversar sobre seu projeto?</span>
+    
+    <!-- WhatsApp Popup -->
+    <div class="whatsapp-popup" id="whatsapp-popup">
+      <div class="whatsapp-popup-header">
+        <span>Vamos conversar sobre seu projeto?</span>
+        <button class="whatsapp-popup-close" id="whatsapp-popup-close" aria-label="Fechar">×</button>
+      </div>
+      <div class="whatsapp-popup-options" id="whatsapp-popup-options">
+        <!-- Rendered by main.js -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/configurator.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/form.js"></script>
+  <script src="js/main.js"></script>
+
+
+</body>
+</html>
