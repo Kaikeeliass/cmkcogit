@@ -281,13 +281,13 @@ function renderFooterSocial() {
 
   let html = '';
   if (socialLinks.instagram) {
-    html += `<a href="${socialLinks.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">${getIcon('instagram')}</a>`;
+    html += `<a href="https://www.instagram.com/cmkcogit" target="_blank" rel="noopener noreferrer" aria-label="Instagram">${getIcon('instagram')}</a>`;
   }
   if (socialLinks.linkedin) {
-    html += `<a href="${socialLinks.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">${getIcon('linkedin')}</a>`;
+    html += `<a href="https://www.linkedin.com/in/cmkcogit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">${getIcon('linkedin')}</a>`;
   }
   if (socialLinks.email) {
-    html += `<a href="${socialLinks.email}" aria-label="E-mail">${getIcon('mail')}</a>`;
+    html += `<a href="mailto:contato@cmkcogit.com.br" aria-label="E-mail">${getIcon('mail')}</a>`;
   }
 
   container.innerHTML = html;
