@@ -3,6 +3,29 @@
    All content centralized for easy updates
    ============================================ */
 
+// ── Site Configuration ──
+const siteConfig = {
+  // Google Analytics — insert your GA4 ID (e.g. 'G-XXXXXXXXXX')
+  gaId: '',
+
+  // Set to true to show cookie consent banner before loading analytics
+  requireCookieConsent: true,
+
+  // Response time text shown in the contact section
+  responseTimeText: 'Após recebermos sua solicitação, entraremos em contato pelo canal informado.',
+
+  // Canonical domain
+  canonicalDomain: 'https://cmkcogit.com.br',
+
+  // Company info for schema.org
+  companyName: 'CMKCOGIT',
+  companyAlternateName: 'COGIT',
+  companyEmail: 'contato@cmkcogit.com.br',
+  companyCity: 'São José do Rio Preto',
+  companyState: 'SP',
+  companyCountry: 'BR'
+};
+
 // ── SVG Icons ──
 const ICONS = {
   arrowRight: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>',
@@ -63,7 +86,7 @@ const challengeData = [
     title: 'Quero melhorar minha presença digital',
     description: 'Preciso apresentar melhor meu negócio, gerar oportunidades ou criar uma experiência digital profissional.',
     tags: ['Sites', 'Landing Pages', 'Campanhas', 'Conversão'],
-    cta: 'Ver Presença Digital →',
+    cta: 'Quero criar meu site →',
     ctaLink: '#pricing'
   },
   {
@@ -72,7 +95,7 @@ const challengeData = [
     title: 'Quero melhorar minha operação',
     description: 'Preciso reduzir tarefas manuais, organizar processos, integrar ferramentas ou construir uma solução interna.',
     tags: ['Sistemas', 'Automação', 'Dashboards', 'Integrações'],
-    cta: 'Ver Operação Digital →',
+    cta: 'Quero melhorar minha operação →',
     ctaLink: '#pricing'
   },
   {
@@ -80,8 +103,8 @@ const challengeData = [
     icon: 'rocket',
     title: 'Quero criar um produto',
     description: 'Tenho uma ideia de produto, plataforma ou negócio digital que preciso estruturar, validar e desenvolver.',
-    tags: ['MVP', 'SaaS', 'Plataforma', 'IA', 'Produto digital'],
-    cta: 'Ver Produto Digital →',
+    tags: ['MVP', 'SaaS', 'Plataforma', 'Produto digital'],
+    cta: 'Apresentar minha ideia →',
     ctaLink: '#pricing'
   }
 ];
@@ -136,18 +159,6 @@ const servicesData = [
     basePrice: 11900,
     priceType: 'startingAt',
     priceNote: 'Projetos avançados são avaliados conforme estrutura e complexidade.',
-    customAnalysis: true
-  },
-  {
-    id: 'inteligencia-artificial',
-    title: 'Inteligência Artificial',
-    description: 'Aplicamos IA para automatizar tarefas, organizar informações e resolver necessidades reais de negócio.',
-    icon: 'ai',
-    slug: 'inteligencia-artificial',
-    tag: 'IA APLICADA',
-    basePrice: 2490,
-    priceType: 'startingAt',
-    priceNote: 'Valor inicial para aplicações de IA de menor complexidade.',
     customAnalysis: true
   },
   {
@@ -279,7 +290,6 @@ const plansData = [
       'MVP',
       'SaaS',
       'Plataforma',
-      'Inteligência Artificial',
       'Validação'
     ],
     priceLabel: 'Projetos a partir de',
@@ -373,31 +383,17 @@ const configuratorData = {
       priceType: 'from',
       price: 11900,
       description: 'Plataformas e ecossistemas digitais exigem diagnóstico detalhado.',
-      allowedAddons: ['dashboard', 'integracao-api', 'integracao-crm', 'area-restrita', 'inteligencia-artificial-extra']
+      allowedAddons: ['dashboard', 'integracao-api', 'integracao-crm', 'area-restrita']
     },
     {
-      id: 'inteligencia-artificial',
-      name: 'Inteligência Artificial',
-      icon: 'ai',
-      hasLevels: true,
-      allowedAddons: ['dashboard', 'integracao-api', 'integracao-externa'],
-      levels: [
-        { id: 'essencial', name: 'Essencial', description: 'Aplicação simples de IA, chatbot ou automação inteligente com escopo definido.', priceType: 'fixed', price: 2490 },
-        { id: 'profissional', name: 'Profissional', description: 'IA integrada a processos, dados ou outras ferramentas.', priceType: 'from', price: 4990 },
-        { id: 'avancada', name: 'Avançada', description: 'Agentes, múltiplas integrações, bases proprietárias, RAG, APIs ou fluxos complexos.', priceType: 'custom', price: null }
-      ]
-    },
-    {
-      id: 'consultoria',
-      name: 'Consultoria',
-      icon: 'consulting',
-      hasLevels: true,
-      allowedAddons: [],
-      levels: [
-        { id: 'essencial', name: 'Essencial', description: 'Diagnóstico e orientação inicial.', priceType: 'fixed', price: 990 },
-        { id: 'estrategica', name: 'Estratégica', description: 'Diagnóstico aprofundado + estruturação + roadmap.', priceType: 'fixed', price: 1490 },
-        { id: 'personalizada', name: 'Personalizada', description: 'Projetos que exigem acompanhamento ou atuação contínua.', priceType: 'custom', price: null }
-      ]
+      id: 'outras-solucoes',
+      name: 'Outras Soluções',
+      icon: 'otherSolutions',
+      hasLevels: false,
+      priceType: 'custom',
+      price: null,
+      description: 'Dashboards, integrações, APIs, áreas restritas e demandas específicas são definidas após entendimento do projeto.',
+      allowedAddons: []
     }
   ],
   addons: [
@@ -411,15 +407,11 @@ const configuratorData = {
     { id: 'area-restrita', name: 'Área restrita', priceType: 'custom', price: null },
     { id: 'integracao-crm', name: 'Integração com CRM', priceType: 'from', price: 1490 },
     { id: 'integracao-api', name: 'Integração com API', priceType: 'from', price: 1490 },
-    { id: 'analytics-avancado', name: 'Analytics avançado', priceType: 'from', price: 690 },
-    { id: 'inteligencia-artificial-extra', name: 'Inteligência Artificial', priceType: 'from', price: 2490 }
+    { id: 'analytics-avancado', name: 'Analytics avançado', priceType: 'from', price: 690 }
   ],
   complexCombinations: [
-    ['sistema', 'inteligencia-artificial'],
     ['sistema', 'saas'],
-    ['plataforma', 'inteligencia-artificial'],
-    ['plataforma', 'saas'],
-    ['mvp', 'inteligencia-artificial']
+    ['plataforma', 'saas']
   ]
 };
 
@@ -503,36 +495,58 @@ const casesData = [
 // ── FAQ Data (Updated) ──
 const faqData = [
   {
-    question: 'Quanto custa um projeto?',
-    answer: 'Algumas soluções possuem investimento inicial definido. Projetos personalizados são avaliados de acordo com escopo e complexidade.'
-  },
-  {
-    question: 'O valor mostrado no configurador é definitivo?',
-    answer: 'Não. O configurador apresenta uma estimativa baseada no escopo padrão. O valor final é confirmado após análise da necessidade.'
-  },
-  {
-    question: 'Posso combinar diferentes serviços?',
-    answer: 'Sim. O configurador permite combinar soluções e adicionais para criar uma proposta personalizada.'
+    question: 'Quanto custa desenvolver um projeto com a COGIT?',
+    answer: 'Algumas soluções possuem valores iniciais definidos. Projetos personalizados variam conforme escopo, funcionalidades, integrações e complexidade técnica.'
   },
   {
     question: 'Preciso saber qual tecnologia utilizar?',
-    answer: 'Não. Basta explicar o problema ou objetivo. A COGIT ajuda a definir a abordagem mais adequada.'
+    answer: 'Não. Você pode começar explicando o problema, processo ou ideia. A COGIT ajuda a estruturar a solução e definir a tecnologia mais adequada.'
   },
   {
-    question: 'Vocês trabalham com projetos personalizados?',
-    answer: 'Sim. Sistemas, plataformas, SaaS, IA e automações podem ser estruturados sob medida.'
+    question: 'Vocês desenvolvem projetos personalizados?',
+    answer: 'Sim. Desenvolvemos sistemas, automações, plataformas, SaaS e outras soluções adaptadas às necessidades de cada projeto.'
   },
   {
-    question: 'Existe suporte depois da entrega?',
-    answer: 'Sim. Acompanhamento, manutenção e evolução podem ser definidos conforme a solução.'
+    question: 'Posso combinar diferentes serviços?',
+    answer: 'Sim. É possível combinar, por exemplo, site, automação, integrações, dashboards e outras funcionalidades em uma mesma solução.'
+  },
+  {
+    question: 'Existe suporte após a entrega?',
+    answer: 'Sim. Manutenção, suporte e evolução podem ser estruturados conforme o tipo de projeto e necessidade do cliente.'
+  },
+  {
+    question: 'Quanto tempo demora um projeto?',
+    answer: 'O prazo depende da complexidade, escopo e tipo de solução. Projetos mais simples podem ser entregues em semanas, enquanto soluções mais complexas seguem um cronograma definido em conjunto.'
+  },
+  {
+    question: 'Vocês atendem empresas de outras cidades?',
+    answer: 'Sim. Atendemos empresas de diferentes regiões. Todo o processo pode ser conduzido remotamente, desde o diagnóstico até a entrega e acompanhamento.'
+  },
+  {
+    question: 'Como funciona o "Monte sua solução"?',
+    answer: 'O configurador permite selecionar serviços e funcionalidades para visualizar uma estimativa inicial de investimento. Os valores apresentados são estimativas e não representam proposta comercial definitiva.'
   }
+];
+
+
+// ── Testimonials Data ──
+// Add real testimonials here. Component is hidden when array is empty.
+const testimonialsData = [
+  // {
+  //   name: 'Nome do Cliente',
+  //   company: 'Empresa',
+  //   role: 'Cargo',
+  //   testimonial: 'Depoimento real do cliente.',
+  //   photo: '', // optional
+  //   projectLink: '' // optional
+  // }
 ];
 
 
 // ── Social Links ──
 const socialLinks = {
-  instagram: '#',
-  linkedin: '#',
+  instagram: 'https://www.instagram.com/cmkcogit',
+  linkedin: 'https://www.linkedin.com/in/cmkcogit',
   email: 'mailto:contato@cmkcogit.com.br',
   whatsapp: 'https://wa.me/5517981568889'
 };
@@ -545,10 +559,8 @@ const projectTypes = [
   'Sistema',
   'SaaS',
   'Automação',
-  'IA',
   'MVP',
-  'Consultoria',
-  'Outro'
+  'Outras Soluções'
 ];
 
 

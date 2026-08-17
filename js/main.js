@@ -19,20 +19,47 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize form validation
   initForm();
 
-  // WhatsApp button with popup
-  initWhatsApp();
+  // Contact Hub (ex-WhatsApp float)
+  initContactHub();
+
+  // Initialize mobile fixed CTA
+  initMobileFixedCTA();
+
+  // Initialize Analytics (respects cookie consent)
+  if (typeof siteConfig !== 'undefined' && siteConfig.requireCookieConsent) {
+    initCookieBanner();
+    // If already consented, load analytics
+    if (localStorage.getItem('cogit_cookie_consent') === 'accepted') {
+      initAnalytics();
+      bindAnalyticsEvents();
+    }
+  } else {
+    // No consent required — load directly
+    initAnalytics();
+    bindAnalyticsEvents();
+  }
+
+  // Set response time text from config
+  initResponseTime();
 });
 
-// ── WhatsApp Float with Popup ──
-function initWhatsApp() {
-  const whatsappBtn = document.getElementById('whatsapp-float-btn');
+// ── Contact Hub (ex-WhatsApp Float) ──
+function initContactHub() {
+  const hubEl = document.getElementById('whatsapp-float');
+  const triggerBtn = document.getElementById('whatsapp-float-btn');
   const popup = document.getElementById('whatsapp-popup');
   const closeBtn = document.getElementById('whatsapp-popup-close');
+  const backBtn = document.getElementById('ch-back-btn');
   const optionsContainer = document.getElementById('whatsapp-popup-options');
 
-  if (!whatsappBtn || !popup) return;
+  const btnInsta = document.getElementById('ch-instagram');
+  const btnLinked = document.getElementById('ch-linkedin');
+  const btnEmail = document.getElementById('ch-email');
+  const btnWhats = document.getElementById('ch-whatsapp');
 
-  // Render options
+  if (!hubEl || !triggerBtn) return;
+
+  // Render WhatsApp options
   if (optionsContainer && typeof whatsappOptions !== 'undefined') {
     optionsContainer.innerHTML = whatsappOptions.map(opt => `
       <button class="whatsapp-popup-option" data-message="${encodeURIComponent(opt.message)}" type="button">
@@ -44,33 +71,151 @@ function initWhatsApp() {
     optionsContainer.querySelectorAll('.whatsapp-popup-option').forEach(btn => {
       btn.addEventListener('click', () => {
         const message = decodeURIComponent(btn.dataset.message);
-        const baseUrl = socialLinks.whatsapp || 'https://wa.me/5517981568889';
+        const baseUrl = (typeof socialLinks !== 'undefined' && socialLinks.whatsapp) ? socialLinks.whatsapp : 'https://wa.me/5517981568889';
+        
+        // Track analytics
+        if (typeof trackEvent === 'function') {
+           trackEvent('whatsapp_option_selected', { option: btn.textContent.trim() });
+        }
+        
         const url = `${baseUrl}?text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
-        popup.classList.remove('is-open');
+        hubEl.dataset.state = 'closed';
       });
     });
   }
 
-  // Toggle popup
-  whatsappBtn.addEventListener('click', (e) => {
+  // Populate social links
+  if (typeof socialLinks !== 'undefined') {
+    if (btnInsta && socialLinks.instagram) btnInsta.href = socialLinks.instagram;
+    else if (btnInsta) btnInsta.style.display = 'none';
+
+    if (btnLinked && socialLinks.linkedin) btnLinked.href = socialLinks.linkedin;
+    else if (btnLinked) btnLinked.style.display = 'none';
+
+    if (btnEmail && socialLinks.email) btnEmail.href = socialLinks.email;
+    else if (btnEmail) btnEmail.style.display = 'none';
+  }
+
+  // State Management
+  function setState(state) {
+    hubEl.dataset.state = state;
+    if (state === 'channels' && typeof trackEvent === 'function') trackEvent('contact_hub_open');
+    if (state === 'whatsapp' && typeof trackEvent === 'function') trackEvent('whatsapp_menu_open');
+  }
+
+  // Toggle Hub
+  triggerBtn.addEventListener('click', (e) => {
     e.stopPropagation();
-    popup.classList.toggle('is-open');
+    const currentState = hubEl.dataset.state;
+    if (currentState === 'closed') {
+      setState('channels');
+    } else {
+      setState('closed');
+    }
   });
 
-  // Close popup
-  if (closeBtn) {
-    closeBtn.addEventListener('click', (e) => {
+  // Open WhatsApp Popup
+  if (btnWhats) {
+    btnWhats.addEventListener('click', (e) => {
       e.stopPropagation();
-      popup.classList.remove('is-open');
+      setState('whatsapp');
     });
   }
 
-  // Close on outside click
-  document.addEventListener('click', (e) => {
-    const floatEl = document.getElementById('whatsapp-float');
-    if (floatEl && !floatEl.contains(e.target)) {
-      popup.classList.remove('is-open');
+  // Back button (from WhatsApp to Channels)
+  if (backBtn) {
+    backBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setState('channels');
+    });
+  }
+
+  // Close WhatsApp popup completely
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      setState('closed');
+    });
+  }
+
+  // Analytics for direct channels
+  [btnInsta, btnLinked, btnEmail].forEach(btn => {
+    if (btn) {
+      btn.addEventListener('click', () => {
+        if (typeof trackEvent === 'function') {
+          const id = btn.id.replace('ch-', '');
+          trackEvent(`${id}_click`);
+        }
+      });
     }
   });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (hubEl && !hubEl.contains(e.target)) {
+      setState('closed');
+    }
+  });
+  
+  // Close on ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && hubEl.dataset.state !== 'closed') {
+      setState('closed');
+    }
+  });
+}
+
+// ── Mobile Fixed CTA ──
+function initMobileFixedCTA() {
+  const mobileCta = document.getElementById('mobile-fixed-cta');
+  if (!mobileCta) return;
+
+  let hasScrolled = false;
+  const scrollThreshold = 400; // Show after scrolling 400px
+
+  function handleScroll() {
+    const currentScroll = window.scrollY;
+
+    // Don't show when near the contact form (to avoid covering it)
+    const contactSection = document.getElementById('contact');
+    const configuratorSection = document.getElementById('configurator');
+    let nearForm = false;
+
+    if (contactSection) {
+      const contactRect = contactSection.getBoundingClientRect();
+      if (contactRect.top < window.innerHeight && contactRect.bottom > 0) {
+        nearForm = true;
+      }
+    }
+
+    if (configuratorSection) {
+      const cfgRect = configuratorSection.getBoundingClientRect();
+      if (cfgRect.top < window.innerHeight && cfgRect.bottom > 0) {
+        nearForm = true;
+      }
+    }
+
+    if (currentScroll > scrollThreshold && !nearForm) {
+      if (!hasScrolled) {
+        hasScrolled = true;
+        mobileCta.classList.add('is-visible');
+      }
+    } else {
+      if (hasScrolled || nearForm) {
+        hasScrolled = false;
+        mobileCta.classList.remove('is-visible');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+}
+
+// ── Response Time Text ──
+function initResponseTime() {
+  const responseTimeEl = document.getElementById('response-time-text');
+  if (responseTimeEl && typeof siteConfig !== 'undefined' && siteConfig.responseTimeText) {
+    responseTimeEl.textContent = siteConfig.responseTimeText;
+  }
 }

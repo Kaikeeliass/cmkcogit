@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" type="image/png" href="assets/images/cmk.png">
+  <!-- SEO -->
+  <title>Página não encontrada | COGIT</title>
+  <meta name="description" content="A página que você procura não foi encontrada. Volte ao início ou conheça as soluções da COGIT.">
+  <meta name="robots" content="noindex, nofollow">
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Página não encontrada | COGIT">
+  <meta property="og:description" content="A página que você procura não foi encontrada.">
+  <meta property="og:url" content="https://cmkcogit.com.br/404">
+  <meta property="og:site_name" content="CMKCOGIT">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://cmkcogit.com.br/assets/images/og-image.png">
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header is-scrolled" role="banner">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="CMKCOGIT - Página inicial">
+        <img src="assets/images/logo-white.png" alt="Logo da CMKCOGIT" class="logo-img">
+      </a>
+      <nav class="nav" role="navigation" aria-label="Menu principal">
+        <a href="/#solutions" class="nav-link">Soluções</a>
+        <a href="/#pricing" class="nav-link">Investimentos</a>
+        <a href="/#configurator" class="nav-link">Monte sua solução</a>
+        <a href="/#process" class="nav-link">Como trabalhamos</a>
+        <a href="/#cases" class="nav-link">Projetos</a>
+        <a href="/#about" class="nav-link">Sobre</a>
+      </nav>
+      <a href="/#contact" class="btn btn-primary btn-sm header-cta">Fale sobre seu projeto</a>
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu-404">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobile-menu-404" role="navigation" aria-label="Menu mobile">
+    <a href="/#solutions" class="nav-link">Soluções</a>
+    <a href="/#pricing" class="nav-link">Investimentos</a>
+    <a href="/#configurator" class="nav-link">Monte sua solução</a>
+    <a href="/#process" class="nav-link">Como trabalhamos</a>
+    <a href="/#cases" class="nav-link">Projetos</a>
+    <a href="/#about" class="nav-link">Sobre</a>
+    <a href="/#contact" class="btn btn-primary" style="margin-top: 1rem;">Fale sobre seu projeto</a>
+  </nav>
+
+  <main role="main">
+    <section class="page-error" aria-label="Página não encontrada">
+      <div class="page-error-bg-grid"></div>
+      <div class="page-error-bg-gradient"></div>
+
+      <!-- Decorative hexagon -->
+      <div class="page-error-hexagon" aria-hidden="true">
+        <svg width="60" height="60" viewBox="0 0 40 40" fill="none">
+          <path d="M20 4L35 12.5V27.5L20 36L5 27.5V12.5L20 4Z" stroke="#A79BFF" stroke-width="1.5" fill="rgba(74,61,219,0.15)"/>
+        </svg>
+        <div class="page-error-hexagon-ring"></div>
+      </div>
+
+      <div class="container">
+        <div class="page-error-content">
+          <span class="page-error-eyebrow">404</span>
+          <h1>Essa página não foi encontrada.</h1>
+          <p>O endereço pode ter mudado ou não existir mais. Você pode voltar ao início ou continuar explorando nossas soluções.</p>
+          <div class="page-error-ctas">
+            <a href="/" class="btn btn-primary btn-lg" id="cta-404-home">
+              Voltar para o início
+              <svg class="btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <a href="/#solutions" class="btn btn-secondary btn-lg" id="cta-404-solutions">Conhecer nossas soluções</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; COGIT — Todos os direitos reservados.</p>
+        <div class="footer-bottom-links">
+          <a href="/privacidade.html">Política de Privacidade</a>
+          <a href="/termos-de-uso.html">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/header.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      initHeader();
+    });
+  </script>
+</body>
+</html>

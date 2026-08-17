@@ -777,7 +777,7 @@ const ConfiguratorApp = (() => {
   }
 
   function openWhatsAppDirect() {
-    const phone = "5511999999999"; // Substitua pelo número real da COGIT
+    const phone = "5517981568889";
     let message = "Olá! Montei uma configuração no site da COGIT e gostaria de conversar sobre o projeto.\n\n";
     
     if (state.selectedServices.length > 0) {

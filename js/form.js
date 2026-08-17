@@ -120,20 +120,16 @@ function initForm() {
     // Log form data (replace with actual submission logic)
     console.log('Form submitted:', formData);
 
-    // Show success
-    form.style.display = 'none';
-    if (formSuccess) {
-      formSuccess.classList.add('is-visible');
+    // Fire analytics event
+    if (typeof trackEvent === 'function') {
+      trackEvent('lead_form_submitted', {
+        event_category: 'conversion',
+        event_label: formData.projectType || 'unknown',
+        value: formData.budget || ''
+      });
     }
 
-    // Reset after 5 seconds
-    setTimeout(() => {
-      form.reset();
-      form.style.display = '';
-      if (formSuccess) {
-        formSuccess.classList.remove('is-visible');
-      }
-      form.querySelectorAll('.form-group').forEach(g => g.classList.remove('has-error'));
-    }, 8000);
+    // Redirect to thank-you page for conversion tracking
+    window.location.href = '/obrigado.html';
   });
 }

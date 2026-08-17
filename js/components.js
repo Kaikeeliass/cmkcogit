@@ -280,17 +280,65 @@ function renderFooterSocial() {
   if (!container) return;
 
   let html = '';
-  if (socialLinks.instagram) {
-    html += `<a href="https://www.instagram.com/cmkcogit" target="_blank" rel="noopener noreferrer" aria-label="Instagram">${getIcon('instagram')}</a>`;
+  if (socialLinks.instagram && socialLinks.instagram !== '#') {
+    html += `<a href="${socialLinks.instagram}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">${getIcon('instagram')}</a>`;
   }
-  if (socialLinks.linkedin) {
-    html += `<a href="https://www.linkedin.com/in/cmkcogit" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">${getIcon('linkedin')}</a>`;
+  if (socialLinks.linkedin && socialLinks.linkedin !== '#') {
+    html += `<a href="${socialLinks.linkedin}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">${getIcon('linkedin')}</a>`;
   }
   if (socialLinks.email) {
-    html += `<a href="mailto:contato@cmkcogit.com.br" aria-label="E-mail">${getIcon('mail')}</a>`;
+    html += `<a href="${socialLinks.email}" aria-label="E-mail">${getIcon('mail')}</a>`;
   }
 
   container.innerHTML = html;
+}
+
+// ── Render Testimonials ──
+function renderTestimonials() {
+  // Check if testimonials section placeholder exists in HTML
+  // If not, we can dynamically inject it before FAQ
+  if (typeof testimonialsData === 'undefined' || !testimonialsData.length) return;
+
+  const faqSection = document.getElementById('faq');
+  if (!faqSection) return;
+
+  // Create testimonials section
+  const section = document.createElement('section');
+  section.className = 'section testimonials-section has-data';
+  section.id = 'testimonials';
+  section.setAttribute('aria-label', 'Depoimentos');
+  section.innerHTML = `
+    <div class="container">
+      <div class="section-header center reveal">
+        <span class="section-label" style="justify-content: center;">DEPOIMENTOS</span>
+        <h2>Experiências de quem construiu com a gente</h2>
+      </div>
+      <div class="testimonials-grid">
+        ${testimonialsData.map(t => {
+          const initial = t.name ? t.name.charAt(0).toUpperCase() : '?';
+          const avatarContent = t.photo 
+            ? `<img src="${t.photo}" alt="Foto de ${t.name}" loading="lazy">` 
+            : initial;
+          const roleText = [t.role, t.company].filter(Boolean).join(' · ');
+          return `
+            <div class="testimonial-card reveal">
+              <p class="testimonial-card-quote">${t.testimonial}</p>
+              <div class="testimonial-card-author">
+                <div class="testimonial-card-avatar">${avatarContent}</div>
+                <div class="testimonial-card-info">
+                  <h4>${t.name}</h4>
+                  ${roleText ? `<p>${roleText}</p>` : ''}
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+
+  // Insert before FAQ
+  faqSection.parentNode.insertBefore(section, faqSection);
 }
 
 // ── Initialize All Components ──
@@ -304,4 +352,5 @@ function initComponents() {
   renderFAQ();
   renderFormOptions();
   renderFooterSocial();
+  renderTestimonials();
 }
