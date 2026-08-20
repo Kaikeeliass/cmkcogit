@@ -23,6 +23,16 @@
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Fallback: If page has no dark hero banner at top, ensure header has dark background for full legibility */
+body:not(:has(.hero)):not(:has(.solution-hero)) .header,
+.header.header-solid {
+  background: rgba(15, 27, 51, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: var(--space-3) 0;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.15);
+}
+
 .header-inner {
   display: flex;
   align-items: center;
@@ -64,15 +74,17 @@
   font-size: var(--text-sm);
   font-weight: var(--fw-medium);
   color: var(--text-on-dark-secondary);
-  padding: var(--space-2) var(--space-4);
+  padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-md);
-  transition: all var(--duration-fast) var(--ease-out);
+  transition: color var(--duration-fast) var(--ease-out);
   white-space: nowrap;
+  background: transparent;
+  border: none;
 }
 
 .nav-link:hover {
   color: var(--white);
-  background: rgba(255, 255, 255, 0.06);
+  background: transparent;
 }
 
 .nav-link.active {
@@ -139,12 +151,14 @@
   z-index: calc(var(--z-header) - 2);
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   transition: all var(--duration-slow) var(--ease-out);
 }
 
 .menu-overlay.is-open {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 /* Mobile Menu */
@@ -162,6 +176,7 @@
   gap: var(--space-6);
   opacity: 0;
   visibility: hidden;
+  pointer-events: none;
   overflow-y: auto;
   overscroll-behavior: contain;
   transition: all var(--duration-slow) var(--ease-out);
@@ -170,6 +185,7 @@
 .mobile-menu.is-open {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 .mobile-menu .nav-link {

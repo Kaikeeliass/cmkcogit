@@ -78,34 +78,130 @@ const ICONS = {
 };
 
 
-// ── Challenge Data (Identificação do Desafio) ──
-const challengeData = [
+// ── Problem Flows Data (Identificação do Desafio - Home) ──
+const problemFlowsData = [
   {
-    id: 'presenca-digital',
+    id: 'vender-online',
+    title: 'Quero vender ou me posicionar melhor online',
+    description: 'Site institucional, Landing Page e presença digital.',
     icon: 'globe',
-    title: 'Quero melhorar minha presença digital',
-    description: 'Preciso apresentar melhor meu negócio, gerar oportunidades ou criar uma experiência digital profissional.',
-    tags: ['Sites', 'Landing Pages', 'Campanhas', 'Conversão'],
-    cta: 'Quero criar meu site →',
-    ctaLink: '#pricing'
+    subQuestions: [
+      { id: 'site-novo', title: 'Site institucional profissional', description: 'Apresentar a empresa, autoridade e serviços.', preselect: ['site-institucional'] },
+      { id: 'lp-vendas', title: 'Landing Page de alta conversão', description: 'Para campanhas de tráfego pago e captação direta de leads.', preselect: ['landing-page'] },
+      { id: 'redesign', title: 'Modernizar site atual ultrapassado', description: 'Melhorar layout, carregamento e experiência mobile.', preselect: ['site-institucional'] },
+      { id: 'posicionamento', title: 'Melhorar autoridade e credibilidade', description: 'Transmitir mais valor e confiança aos clientes.', preselect: ['site-institucional'] },
+      { id: 'outro-presenca', title: 'Outro objetivo de presença digital', description: 'Necessidade específica para canais web.', preselect: ['site-institucional'] }
+    ],
+    recommendations: ['sites-institucionais', 'landing-pages'],
+    recommendationTitle: 'Presença Digital Estratégica',
+    recommendationSubtitle: 'Site Institucional ou Landing Page',
+    recommendationText: 'Estruturar canais profissionais com clareza de posicionamento, design premium e arquitetura orientada à conversão.',
+    estimateText: 'A partir de R$ 990',
+    preselect: ['site-institucional']
   },
   {
-    id: 'operacao-digital',
+    id: 'automatizar-processo',
+    title: 'Quero automatizar um processo',
+    description: 'Reduza tarefas manuais e conecte ferramentas.',
     icon: 'zap',
-    title: 'Quero melhorar minha operação',
-    description: 'Preciso reduzir tarefas manuais, organizar processos, integrar ferramentas ou construir uma solução interna.',
-    tags: ['Sistemas', 'Automação', 'Dashboards', 'Integrações'],
-    cta: 'Quero melhorar minha operação →',
-    ctaLink: '#pricing'
+    subQuestions: [
+      { id: 'planilhas', title: 'Trabalho repetitivo em planilhas', description: 'Consolidação e digitação manual diária.', preselect: ['automacao'] },
+      { id: 'ferramentas', title: 'Quero conectar ferramentas ou APIs', description: 'Integrar sistemas que hoje operam isolados.', preselect: ['automacao', 'integracao-externa'] },
+      { id: 'atendimento', title: 'Preciso automatizar atendimento / WhatsApp', description: 'Triagem rápida e notificações automáticas.', preselect: ['automacao'] },
+      { id: 'organizar', title: 'Organizar dados e rotinas operacionais', description: 'Fluxos de trabalho padronizados e automáticos.', preselect: ['automacao'] },
+      { id: 'outro-automacao', title: 'Outro fluxo que toma muito tempo', description: 'Processo repetitivo da equipe.', preselect: ['automacao'] }
+    ],
+    recommendations: ['automacao', 'outras-solucoes'],
+    recommendationTitle: 'Automação + Integração',
+    recommendationSubtitle: 'Rotinas Inteligentes & Conexão de Ferramentas',
+    recommendationText: 'Reduzir tempo em tarefas manuais, eliminar retrabalho e conectar suas ferramentas atuais com estabilidade.',
+    estimateText: 'A partir de R$ 990',
+    preselect: ['automacao']
   },
   {
-    id: 'produto-digital',
+    id: 'sistema-operacao',
+    title: 'Preciso de um sistema para minha operação',
+    description: 'Centralize processos e organize sua gestão.',
+    icon: 'systems',
+    subQuestions: [
+      { id: 'gestao-interna', title: 'Controle de processos internos e tarefas', description: 'Esteiras de trabalho e permissões da equipe.', preselect: ['sistema'] },
+      { id: 'portal-clientes', title: 'Área restrita para clientes ou parceiros', description: 'Login seguro, documentos e chamados.', preselect: ['sistema', 'painel-cliente'] },
+      { id: 'substituir-planilhas', title: 'Planilhas que já não suportam mais o volume', description: 'Muitos erros manuais e lentidão na rotina.', preselect: ['sistema'] },
+      { id: 'painel-indicadores', title: 'Dashboard de indicadores e relatórios', description: 'Visibilidade gerencial consolidada em tempo real.', preselect: ['sistema', 'dashboard'] },
+      { id: 'outro-sistema', title: 'Outro software sob medida para a operação', description: 'Regras de negócio específicas da empresa.', preselect: ['sistema'] }
+    ],
+    recommendations: ['sistemas-personalizados', 'outras-solucoes'],
+    recommendationTitle: 'Sistema Personalizado',
+    recommendationSubtitle: 'Software Sob Medida para sua Operação',
+    recommendationText: 'Construir um software adaptado com precisão às regras do seu negócio, sem limitações de plataformas genéricas.',
+    estimateText: 'A partir de R$ 7.900',
+    preselect: ['sistema']
+  },
+  {
+    id: 'ideia-papel',
+    title: 'Quero tirar uma ideia do papel',
+    description: 'MVP, SaaS e novos produtos digitais.',
     icon: 'rocket',
-    title: 'Quero criar um produto',
-    description: 'Tenho uma ideia de produto, plataforma ou negócio digital que preciso estruturar, validar e desenvolver.',
-    tags: ['MVP', 'SaaS', 'Plataforma', 'Produto digital'],
-    cta: 'Apresentar minha ideia →',
-    ctaLink: '#pricing'
+    subQuestions: [
+      { id: 'mvp-validacao', title: 'Construir um MVP para validar com o mercado', description: 'Versão prática para testar hipóteses com usuários reais.', preselect: ['mvp'] },
+      { id: 'saas-assinatura', title: 'Criar um SaaS com cobrança recorrente', description: 'Plataforma multi-inquilino com assinaturas.', preselect: ['saas'] },
+      { id: 'plataforma-marketplace', title: 'Plataforma conectando dois públicos', description: 'Marketplace ou ecossistema intermediário.', preselect: ['plataforma'] },
+      { id: 'digitalizar-servico', title: 'Transformar um serviço presencial em digital', description: 'Automatizar a entrega e escala do serviço.', preselect: ['mvp'] },
+      { id: 'outro-produto', title: 'Outra ideia de produto inovador', description: 'Projeto em fase de concepção técnica.', preselect: ['mvp'] }
+    ],
+    recommendations: ['mvp', 'saas', 'plataformas'],
+    recommendationTitle: 'Desenvolvimento de Produto Digital',
+    recommendationSubtitle: 'MVP ou Plataforma SaaS',
+    recommendationText: 'Construir a primeira versão funcional com arquitetura moderna e foco em validação rápida com baixo risco.',
+    estimateText: 'A partir de R$ 9.900',
+    preselect: ['mvp']
+  },
+  {
+    id: 'ainda-nao-sei',
+    title: 'Ainda não sei o que preciso',
+    description: 'Conte o problema e ajudamos a estruturar o caminho.',
+    icon: 'consulting',
+    subQuestions: [
+      { id: 'vender-melhor', title: 'Quero vender mais ou melhorar minha presença', description: 'Posicionamento digital e novos clientes.', preselect: ['site-institucional'] },
+      { id: 'processo-manual', title: 'Tenho tarefas manuais e lentas na equipe', description: 'Gargalos e retrabalho na operação diária.', preselect: ['automacao'] },
+      { id: 'desorganizacao', title: 'Falta organização e controle na operação', description: 'Informações soltas e sem padrão.', preselect: ['sistema'] },
+      { id: 'criar-novo', title: 'Quero criar algo novo ou lançar um produto', description: 'Nova oportunidade de negócio no mercado.', preselect: ['mvp'] },
+      { id: 'outro-diagnostico', title: 'Outro desafio específico da empresa', description: 'Conversar diretamente com a equipe técnica.', preselect: ['site-institucional'] }
+    ],
+    recommendations: ['consultoria', 'outras-solucoes'],
+    recommendationTitle: 'Diagnóstico Sob Medida',
+    recommendationSubtitle: 'Análise Consultiva Inicial',
+    recommendationText: 'O melhor caminho é conversarmos sobre o seu cenário atual para desenhar a estrutura técnica mais eficiente.',
+    estimateText: 'Diagnóstico personalizado',
+    preselect: ['site-institucional']
+  }
+];
+
+// ── Solutions Groups (Hub de Soluções) ──
+const solutionsGroupsData = [
+  {
+    id: 'atrair-converter',
+    title: 'Atrair e converter',
+    description: 'Para empresas que precisam melhorar presença, posicionamento e geração de oportunidades.',
+    services: ['sites-institucionais', 'landing-pages']
+  },
+  {
+    id: 'ganhar-eficiencia',
+    title: 'Ganhar eficiência',
+    description: 'Para reduzir tarefas manuais, conectar ferramentas e melhorar processos.',
+    services: ['automacao', 'outras-solucoes']
+  },
+  {
+    id: 'organizar-operacao',
+    title: 'Organizar a operação',
+    description: 'Centralize processos e estruture informações.',
+    services: ['sistemas-personalizados', 'plataformas']
+  },
+  {
+    id: 'criar-novo',
+    title: 'Criar algo novo',
+    description: 'Transforme ideias em negócios e produtos digitais.',
+    services: ['mvp', 'saas']
   }
 ];
 
@@ -180,7 +276,7 @@ const servicesData = [
     icon: 'websites',
     slug: 'sites-institucionais',
     tag: 'PRESENÇA',
-    basePrice: 1690,
+    basePrice: 1990,
     priceType: 'startingAt',
     priceNote: 'Valor referente à estrutura institucional essencial.',
     customAnalysis: true
@@ -242,9 +338,9 @@ const plansData = [
     priceExplanation: 'Valor considerando uma estrutura institucional essencial. O investimento pode variar conforme páginas, conteúdo, funcionalidades e integrações.',
     estimatedTime: 'A partir de 2 semanas',
     primaryCta: 'Quero melhorar minha presença →',
-    primaryCtaPreselect: ['sites-institucionais'],
+    primaryCtaPreselect: ['site-institucional'],
     secondaryCta: 'Ver soluções de presença',
-    secondaryCtaLink: '#solutions',
+    secondaryCtaLink: '/solucoes/sites-e-landing-pages.html',
     featured: false,
     cardType: 'neutral'
   },
@@ -269,9 +365,9 @@ const plansData = [
     priceExplanation: 'O investimento varia conforme processos, integrações, regras de negócio e complexidade técnica.',
     advancedNote: 'Projetos com sistemas personalizados, múltiplas integrações ou regras avançadas passam por diagnóstico técnico.',
     advancedLinkText: 'Preciso de uma solução mais complexa →',
-    advancedLinkUrl: '#contact',
+    advancedLinkUrl: '/contato.html',
     primaryCta: 'Quero melhorar minha operação →',
-    primaryCtaPreselect: ['sistema-personalizado', 'automacao'],
+    primaryCtaPreselect: ['sistema', 'automacao'],
     secondaryCta: null,
     featured: true,
     cardType: 'highlight'
@@ -299,7 +395,7 @@ const plansData = [
     primaryCta: 'Quero apresentar minha ideia →',
     primaryCtaPreselect: ['mvp'],
     secondaryCta: 'Entender como criamos produtos',
-    secondaryCtaLink: '#process',
+    secondaryCtaLink: '/como-trabalhamos.html',
     featured: false,
     cardType: 'neutral-alt'
   }
@@ -316,8 +412,8 @@ const configuratorData = {
       hasLevels: true,
       allowedAddons: ['pagina-adicional', 'blog', 'seo-avancado', 'copywriting', 'automacao-extra', 'integracao-crm', 'integracao-externa', 'area-restrita'],
       levels: [
-        { id: 'essencial', name: 'Essencial', description: 'Até 5 páginas, responsivo, formulário, WhatsApp, SEO técnico inicial e Analytics.', priceType: 'from', price: 1690 },
-        { id: 'profissional', name: 'Profissional', description: 'Mais páginas, maior personalização visual, blog ou estrutura de conteúdo, integrações simples e recursos adicionais.', priceType: 'from', price: 2490 },
+        { id: 'essencial', name: 'Essencial', description: 'Até 5 páginas, responsivo, formulário, WhatsApp, SEO técnico inicial e Analytics.', priceType: 'from', price: 1990 },
+        { id: 'profissional', name: 'Profissional', description: 'Mais páginas, maior personalização visual, blog ou estrutura de conteúdo, integrações simples e recursos adicionais.', priceType: 'from', price: 2990 },
         { id: 'avancado', name: 'Avançado', description: 'Área restrita, integrações, funcionalidades personalizadas, sistemas associados ou necessidades específicas.', priceType: 'custom', price: null }
       ]
     },
@@ -353,7 +449,7 @@ const configuratorData = {
       priceType: 'from',
       price: 7900,
       description: 'Sistemas personalizados exigem avaliação técnica para definir escopo, prazo e investimento.',
-      allowedAddons: ['dashboard', 'integracao-api', 'integracao-crm', 'area-restrita', 'inteligencia-artificial-extra', 'automacao-extra']
+      allowedAddons: ['dashboard', 'integracao-api', 'integracao-crm', 'area-restrita', 'automacao-extra']
     },
     {
       id: 'saas',
@@ -363,7 +459,7 @@ const configuratorData = {
       priceType: 'from',
       price: 14900,
       description: 'Produtos SaaS possuem escopos variados e são analisados individualmente.',
-      allowedAddons: ['dashboard', 'integracao-api', 'integracao-crm', 'area-restrita', 'inteligencia-artificial-extra']
+      allowedAddons: ['dashboard', 'integracao-api', 'integracao-crm', 'area-restrita']
     },
     {
       id: 'mvp',

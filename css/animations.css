@@ -50,30 +50,53 @@
 }
 
 /* Stagger delays */
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
-.reveal-delay-5 { transition-delay: 0.5s; }
-.reveal-delay-6 { transition-delay: 0.6s; }
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.4s;
+}
+
+.reveal-delay-5 {
+  transition-delay: 0.5s;
+}
+
+.reveal-delay-6 {
+  transition-delay: 0.6s;
+}
 
 
 /* ── Hero Animations ── */
 
 @keyframes heroFloat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-12px);
   }
 }
 
 @keyframes heroPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.3;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.7;
     transform: scale(1.5);
@@ -84,6 +107,7 @@
   from {
     transform: translate(-50%, -50%) rotate(0deg);
   }
+
   to {
     transform: translate(-50%, -50%) rotate(360deg);
   }
@@ -94,6 +118,7 @@
     opacity: 0.2;
     transform: scaleX(0.7);
   }
+
   100% {
     opacity: 0.6;
     transform: scaleX(1);
@@ -110,6 +135,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -125,6 +151,7 @@
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -139,6 +166,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -152,6 +180,7 @@
   from {
     height: 0%;
   }
+
   to {
     height: 100%;
   }
@@ -161,9 +190,12 @@
 /* ── Subtle pulse for WhatsApp button ── */
 
 @keyframes subtlePulse {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 8px 30px rgba(15, 27, 51, 0.10);
   }
+
   50% {
     box-shadow: 0 8px 30px rgba(74, 61, 219, 0.20);
   }
@@ -173,10 +205,226 @@
   animation: subtlePulse 4s ease-in-out infinite;
 }
 
+/* ══════════════════════════════════════════
+   BRAND INTRO / REVEAL ANIMATION (~2.0s)
+   ══════════════════════════════════════════ */
+
+body.intro-animating {
+  overflow: hidden !important;
+}
+
+.brand-intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background-color: #060B18;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  user-select: none;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
+}
+
+.brand-intro.is-exiting {
+  opacity: 0;
+  transform: scale(1.02);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.brand-intro.is-hidden {
+  display: none !important;
+}
+
+/* Background Grid */
+.brand-intro-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(167, 155, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(167, 155, 255, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+  opacity: 0.8;
+  pointer-events: none;
+}
+
+/* Central Ambient Glow */
+.brand-intro-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 650px;
+  height: 650px;
+  max-width: 95vw;
+  max-height: 95vw;
+  background: radial-gradient(circle, rgba(74, 61, 219, 0.32) 0%, rgba(10, 18, 40, 0.12) 55%, transparent 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: introGlowPulse 2s ease-in-out infinite;
+}
+
+@keyframes introGlowPulse {
+
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+/* Center Content */
+.brand-intro-center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+/* Logo Reveal (0s - 0.8s) */
+.brand-intro-logo-wrap {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 12px;
+  animation: introLogoReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.brand-intro-logo {
+  height: clamp(110px, 18vw, 190px);
+  width: auto;
+  max-width: clamp(260px, 48vw, 440px);
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 32px rgba(74, 61, 219, 0.55));
+}
+
+/* Shimmer pass over logo */
+.brand-intro-shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(167, 155, 255, 0.15) 40%,
+      rgba(255, 255, 255, 0.35) 50%,
+      rgba(167, 155, 255, 0.15) 60%,
+      transparent 100%);
+  transform: skewX(-20deg);
+  animation: introShimmerPass 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  pointer-events: none;
+}
+
+@keyframes introLogoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(8px);
+    filter: blur(4px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes introShimmerPass {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 200%;
+    opacity: 0;
+  }
+}
+
+/* Slogan & Triad Reveal (0.8s - 1.5s) */
+.brand-intro-slogan-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  animation: introSloganReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.75s both;
+}
+
+.brand-intro-slogan {
+  font-family: var(--font-heading);
+  font-size: clamp(11px, 1.4vw, 13px);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.brand-intro-triad {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: clamp(9.5px, 1.1vw, 10.5px);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lilac);
+  opacity: 0.85;
+}
+
+.brand-intro-triad .triad-dot {
+  color: var(--purple);
+  font-size: 10px;
+  opacity: 0.9;
+}
+
+@keyframes introSloganReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+    filter: blur(3px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+
 
 /* ── Reduce motion ── */
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {

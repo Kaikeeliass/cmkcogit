@@ -71,6 +71,29 @@
 
   .hero-inner {
     min-height: auto;
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-8);
+    padding: var(--space-10) 0;
+  }
+
+  .hero-content {
+    width: 100%;
+    align-items: center;
+  }
+
+  .hero-content h1 {
+    padding-right: 0 !important;
+  }
+
+  .hero-interactive-container {
+    width: 100%;
+    margin-top: var(--space-4);
+    min-height: auto;
+  }
+
+  .hero-ctas {
+    justify-content: center !important;
   }
 
   .hero-visual {
@@ -344,6 +367,92 @@
     font-size: var(--text-base);
   }
 
+  /* Hero Interactive Discovery Mobile Polish */
+  .hero-interactive-container {
+    padding: 20px 16px 18px 16px;
+    border-radius: var(--radius-lg);
+  }
+
+  .hero-interactive-title {
+    font-size: 1.2rem;
+  }
+
+  .hero-interactive-desc {
+    font-size: 12.5px;
+  }
+
+  .hero-discovery-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .hero-discovery-card {
+    padding: 11px 12px;
+    gap: 6px;
+  }
+
+  .hero-discovery-card-title {
+    font-size: 13px;
+  }
+
+  .hero-discovery-card-desc {
+    font-size: 11px;
+  }
+
+  .hero-selected-pills-bar {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .hero-objective-card {
+    padding: 8px 11px;
+  }
+
+  .hero-objective-title {
+    font-size: 12.5px;
+  }
+
+  .hero-objective-desc {
+    font-size: 11px;
+  }
+
+  .hero-summary-box {
+    padding: 14px 14px;
+    gap: 8px;
+  }
+
+  .hero-summary-sub-actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .hero-discovery-footer {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    text-align: center;
+    padding-top: 12px;
+  }
+
+  .hero-discovery-counter {
+    justify-content: center;
+    font-size: 12px;
+  }
+
+  .btn-hero-back {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 18px;
+  }
+
+  .btn-hero-montar {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 13.5px;
+  }
+
   /* Form */
   .form-grid {
     grid-template-columns: 1fr;
@@ -526,3 +635,103 @@
     margin-bottom: var(--space-6);
   }
 }
+
+/* ── Hero Diagnostic Flow — Mobile (≤768px) ── */
+
+@media (max-width: 768px) {
+  /* Progress bar — compact on mobile */
+  .hero-progress-label {
+    display: none;
+  }
+
+  .hero-progress-dot {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hero-progress-line {
+    min-width: 10px;
+  }
+
+  /* Invite Screen */
+  .hero-invite-view {
+    min-height: 280px;
+    padding: 16px 8px;
+  }
+
+  .btn-hero-start {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* Challenge Cards */
+  .hero-challenge-card {
+    padding: 9px 12px;
+    gap: 10px;
+  }
+
+  .hero-challenge-title {
+    font-size: 13px;
+  }
+
+  .hero-challenge-phrase {
+    font-size: 11px;
+  }
+
+  /* Objective Chips */
+  .hero-objective-chip {
+    padding: 10px 12px;
+    font-size: 12.5px;
+  }
+
+  /* Analyzing screen compact */
+  .hero-analyzing-view {
+    min-height: 220px;
+  }
+
+  /* Result card */
+  .hero-result-card {
+    padding: 12px 14px;
+    gap: 8px;
+  }
+
+  .hero-result-value {
+    font-size: 13.5px;
+  }
+
+  .hero-result-desc {
+    font-size: 12px;
+  }
+
+  .hero-result-commitment {
+    font-size: 11px;
+    padding: 7px 10px;
+  }
+
+  /* Positioning Triad */
+  .hero-positioning-triad {
+    font-size: 10px;
+    padding: 4px 10px;
+    gap: 6px;
+    letter-spacing: 0.1em;
+  }
+
+  .triad-item {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  /* Challenge Icon */
+  .hero-challenge-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-challenge-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+
+

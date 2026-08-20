@@ -65,6 +65,17 @@ function bindAnalyticsEvents() {
     });
   });
 
+  // Hero Interactive clicks
+  document.addEventListener('click', function(e) {
+    var heroOption = e.target.closest('.hero-interactive-option');
+    if (heroOption) {
+      trackEvent('hero_interactive_click', {
+        event_category: 'engagement',
+        event_label: heroOption.querySelector('h4') ? heroOption.querySelector('h4').textContent : heroOption.dataset.id
+      });
+    }
+  });
+
   // WhatsApp clicks
   var whatsappBtn = document.getElementById('whatsapp-float-btn');
   if (whatsappBtn) {

@@ -76,9 +76,53 @@ function initSmoothScroll() {
   });
 }
 
+// ── Brand Intro / Reveal Animation (~2.0s) ──
+function initBrandIntro() {
+  const introEl = document.getElementById('brand-intro');
+  if (!introEl) return;
+
+  // Respect reduced motion accessibility
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    introEl.classList.add('is-hidden');
+    return;
+  }
+
+  // Lock scroll during the 1.5s intro
+  document.body.classList.add('intro-animating');
+
+  let isExited = false;
+  function exitIntro() {
+    if (isExited) return;
+    isExited = true;
+
+    introEl.classList.add('is-exiting');
+    document.body.classList.remove('intro-animating');
+
+    setTimeout(() => {
+      introEl.classList.add('is-hidden');
+    }, 520);
+  }
+
+  // Immediate dismiss on click/touch
+  introEl.addEventListener('click', exitIntro, { once: true });
+
+  // Auto dissolve into the site at 1.6s (total transition finishes at ~2.1s)
+  setTimeout(exitIntro, 1600);
+
+  // Safety fallback
+  setTimeout(() => {
+    document.body.classList.remove('intro-animating');
+    if (!introEl.classList.contains('is-hidden')) {
+      introEl.classList.add('is-hidden');
+    }
+  }, 2400);
+}
+
 // ── Initialize Animations ──
 function initAnimations() {
+  initBrandIntro();
   initScrollReveal();
   initProcessAnimation();
   initSmoothScroll();
 }
+
