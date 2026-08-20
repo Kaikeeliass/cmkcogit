@@ -711,9 +711,8 @@
   /* Positioning Triad */
   .hero-positioning-triad {
     font-size: 10px;
-    padding: 4px 10px;
-    gap: 6px;
-    letter-spacing: 0.1em;
+    gap: 8px;
+    letter-spacing: 0.12em;
   }
 
   .triad-item {

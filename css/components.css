@@ -241,9 +241,9 @@ body:not(:has(.hero)):not(:has(.solution-hero)) .header,
 }
 
 .service-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(15, 27, 51, 0.06);
-  border-color: var(--purple);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -4px rgba(15, 27, 51, 0.08), 0 3px 10px -2px rgba(74, 61, 219, 0.04);
+  border-color: rgba(74, 61, 219, 0.35);
 }
 
 .service-card-icon {
@@ -256,11 +256,11 @@ body:not(:has(.hero)):not(:has(.solution-hero)) .header,
   background: var(--lilac-soft);
   color: var(--purple);
   flex-shrink: 0;
-  transition: transform 300ms var(--ease-out), background-color 300ms;
+  transition: transform 350ms var(--ease-out), background-color 300ms;
 }
 
 .service-card:hover .service-card-icon {
-  transform: scale(1.05);
+  transform: translateY(-2px) scale(1.06);
   background: rgba(74, 61, 219, 0.08);
 }
 
@@ -284,7 +284,6 @@ body:not(:has(.hero)):not(:has(.solution-hero)) .header,
   flex-grow: 1;
 }
 
-
 .service-card-arrow {
   display: flex;
   align-items: center;
@@ -294,8 +293,8 @@ body:not(:has(.hero)):not(:has(.solution-hero)) .header,
   font-weight: var(--fw-semibold);
   color: var(--purple);
   margin-top: auto;
-  opacity: 0.6;
-  transition: all 300ms var(--ease-out);
+  opacity: 0.7;
+  transition: opacity 250ms var(--ease-out), transform 250ms var(--ease-out);
 }
 
 .service-card:hover .service-card-arrow {
@@ -306,11 +305,11 @@ body:not(:has(.hero)):not(:has(.solution-hero)) .header,
 .service-card-arrow svg {
   width: 14px;
   height: 14px;
-  transition: transform 300ms var(--ease-out);
+  transition: transform 250ms var(--ease-out);
 }
 
 .service-card:hover .service-card-arrow svg {
-  transform: translateX(3px);
+  transform: translateX(2px);
 }
 
 @media (max-width: 992px) {
@@ -319,9 +318,6 @@ body:not(:has(.hero)):not(:has(.solution-hero)) .header,
     transform: translateX(0);
   }
 }
-
-
-/* Removed: Pillar card styles (section removed) */
 
 /* ── STARTING POINTS CARDS (ANTIGO PRICING) ── */
 
@@ -332,14 +328,14 @@ body:not(:has(.hero)):not(:has(.solution-hero)) .header,
   background: var(--white);
   border: 1px solid rgba(15, 27, 51, 0.08);
   border-radius: 20px;
-  transition: all 300ms ease;
+  transition: transform 350ms var(--ease-out), box-shadow 350ms var(--ease-out), border-color 350ms var(--ease-out);
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
 }
 
 .pricing-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px -4px rgba(15, 27, 51, 0.08), 0 3px 10px -2px rgba(74, 61, 219, 0.04);
   border-color: rgba(74, 61, 219, 0.3);
 }
 
@@ -625,95 +621,155 @@ body:not(:has(.hero)):not(:has(.solution-hero)) .header,
 /* Removed: Venture card styles (replaced by impact cards in sections.css) */
 
 
-/* ── CASE CARD ── */
+/* ── CASE / PROJECT CARD (Formato Retangular sem imagem e sem chips de linguagem) ── */
 
 .case-card {
   position: relative;
   border-radius: var(--radius-xl);
-  overflow: hidden;
   background: var(--white);
-  border: 1px solid rgba(15, 27, 51, 0.06);
-  transition: all var(--duration-base) var(--ease-out);
-  cursor: pointer;
+  border: 1px solid rgba(15, 27, 51, 0.08);
+  padding: var(--space-8);
+  transition: transform 350ms var(--ease-out), box-shadow 350ms var(--ease-out), border-color 350ms var(--ease-out);
   text-decoration: none;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 20px rgba(15, 27, 51, 0.03);
+  overflow: hidden;
 }
 
 .case-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 16px 36px -8px rgba(15, 27, 51, 0.10), 0 4px 12px rgba(74, 61, 219, 0.06);
+  border-color: rgba(74, 61, 219, 0.35);
 }
 
-.case-card-image {
-  aspect-ratio: 16/10;
-  background: var(--neutral);
-  overflow: hidden;
-  position: relative;
+.case-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
 }
 
-.case-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform var(--duration-slow) var(--ease-out);
+.case-card-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(74, 61, 219, 0.08);
+  border: 1px solid rgba(167, 155, 255, 0.3);
+  color: var(--purple);
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
 }
 
-.case-card:hover .case-card-image img {
-  transform: scale(1.03);
+.case-status-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.6);
+  animation: statusPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
-.case-card-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(15, 27, 51, 0.6), transparent);
-  opacity: 0;
-  transition: opacity var(--duration-base) var(--ease-out);
-}
-
-.case-card:hover .case-card-overlay {
-  opacity: 1;
-}
-
-.case-card-body {
-  padding: var(--space-6) var(--space-8);
+@keyframes statusPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
 }
 
 .case-card-segment {
   font-family: var(--font-heading);
-  font-size: var(--text-xs);
+  font-size: 11px;
   font-weight: var(--fw-semibold);
-  letter-spacing: var(--tracking-wider);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--purple);
-  margin-bottom: var(--space-3);
+  color: var(--text-tertiary);
 }
 
-.case-card-body h3 {
-  font-size: var(--text-xl);
+.case-card-title {
+  font-size: 1.45rem;
   font-weight: var(--fw-bold);
+  color: var(--ink);
   margin-bottom: var(--space-3);
+  line-height: 1.25;
 }
 
-.case-card-body p {
+.case-card-desc {
   font-size: var(--text-sm);
-  color: var(--text-tertiary);
-  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-4);
 }
 
-.case-card-techs {
+.case-card-highlights-box {
+  background: rgba(74, 61, 219, 0.03);
+  border-left: 3px solid var(--purple);
+  padding: var(--space-4) var(--space-4);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: var(--space-2) 0 var(--space-6);
+  transition: background-color 300ms var(--ease-out);
+}
+
+.case-card:hover .case-card-highlights-box {
+  background: rgba(74, 61, 219, 0.06);
+}
+
+.case-card-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  margin-top: var(--space-4);
+  flex-direction: column;
+  gap: 8px;
 }
 
-.case-card-tech {
-  font-size: var(--text-xs);
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
-  background: var(--neutral);
-  color: var(--text-tertiary);
-  font-weight: var(--fw-medium);
+.case-card-highlights li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.case-card-highlights li svg {
+  color: var(--purple);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.case-card-cta {
+  margin-top: auto;
+  font-family: var(--font-heading);
+  font-size: var(--text-sm);
+  font-weight: var(--fw-bold);
+  color: var(--purple);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  transition: color 250ms var(--ease-out);
+  text-decoration: none;
+}
+
+.case-card-cta span {
+  display: inline-block;
+  transition: transform 250ms var(--ease-out);
+}
+
+.case-card:hover .case-card-cta span {
+  transform: translateX(4px);
 }
 
 /* Empty Cases State */
@@ -812,7 +868,12 @@ body:not(:has(.hero)):not(:has(.solution-hero)) .header,
   transition: transform var(--duration-base) var(--ease-out);
 }
 
-.faq-item.is-open .faq-icon {
+.faq-item.is-open .faq-icon,
+.faq-item.is-open svg.faq-icon {
+  transform: rotate(180deg);
+}
+
+.faq-item.is-open .faq-icon-plus {
   transform: rotate(45deg);
 }
 
@@ -820,16 +881,26 @@ body:not(:has(.hero)):not(:has(.solution-hero)) .header,
   width: 18px;
   height: 18px;
   color: var(--purple);
+  transition: transform var(--duration-base) var(--ease-out);
 }
 
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height var(--duration-slow) var(--ease-out);
+  transition: max-height 380ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .faq-answer-inner {
   padding: 0 var(--space-8) var(--space-6);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+.faq-answer > p {
+  padding: 0 var(--space-8) var(--space-6);
+  margin: 0;
   font-family: var(--font-body);
   font-size: var(--text-base);
   color: var(--text-secondary);

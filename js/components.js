@@ -25,46 +25,59 @@ function renderChallenge() {
   `).join('');
 }
 
-// ── Render Hero Interactive — Diagnóstico Consultivo (5 Desafios + Objetivos + Contexto + Resultado) ──
+// ── Render Hero Interactive — COGIT Diagnostic (Configurador: Grid de Serviços + Objetivo + Contexto + Resultado) ──
 function renderHeroInteractive() {
   const container = document.getElementById('hero-interactive-container');
   if (!container) return;
 
-  // ── Desafios de negócio (Etapa 1 — Ícones outline profissionais e monocromáticos) ──
+  // ── Desafios de negócio ──
   const CHALLENGES = [
-    {
-      id: 'presenca',
-      title: 'Presença digital',
-      phrase: 'Fortalecer marca e gerar novas oportunidades.',
+    { id: 'presenca', title: 'Presença digital', phrase: 'Fortalecer marca e gerar novas oportunidades.',
       iconSvg: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="15" rx="2.5"/><line x1="2" y1="8" x2="22" y2="8"/><circle cx="5.5" cy="5.5" r="0.75" fill="currentColor"/><circle cx="8" cy="5.5" r="0.75" fill="currentColor"/><path d="M8 21h8"/><path d="M12 18v3"/></svg>'
     },
-    {
-      id: 'automacao',
-      title: 'Automação',
-      phrase: 'Eliminar tarefas manuais e melhorar processos.',
+    { id: 'automacao', title: 'Automação', phrase: 'Eliminar tarefas manuais e melhorar processos.',
       iconSvg: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1.5"/><rect x="15" y="15" width="6" height="6" rx="1.5"/><circle cx="6" cy="18" r="2"/><path d="M9 6h5a2 2 0 0 1 2 2v7"/><path d="M6 9v7"/><polyline points="13 13 16 16 13 19"/></svg>'
     },
-    {
-      id: 'sistema',
-      title: 'Sistema',
-      phrase: 'Criar uma solução para uma operação específica.',
+    { id: 'sistema', title: 'Sistema', phrase: 'Criar uma solução para uma operação específica.',
       iconSvg: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/><path d="M7 11v2"/><path d="M17 11v2"/><path d="M11 7h2"/><path d="M11 17h2"/></svg>'
     },
-    {
-      id: 'produto',
-      title: 'Produto digital',
-      phrase: 'Transformar uma ideia em plataforma escalável.',
+    { id: 'produto', title: 'Produto digital', phrase: 'Transformar uma ideia em plataforma escalável.',
       iconSvg: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 12l10 5 10-5"/><path d="M2 17l10 5 10-5"/></svg>'
     },
-    {
-      id: 'outro',
-      title: 'Outro desafio',
-      phrase: 'Encontrar o melhor caminho tecnológico.',
+    { id: 'outro', title: 'Outro desafio', phrase: 'Encontrar o melhor caminho tecnológico.',
       iconSvg: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg>'
     }
   ];
 
-  // ── Objetivos contextuais por desafio (Etapa 2) ──
+  // ── Grid de Serviços com ícone + descrição + preço (Etapa 1) ──
+  const SERVICES_GRID = [
+    { id: 'site-institucional', name: 'Site Institucional', desc: 'Presença completa com autoridade.', priceLabel: 'A partir de R$ 1.490', challenge: 'presenca',
+      iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>'
+    },
+    { id: 'landing-page', name: 'Landing Page', desc: 'Página estratégica para conversão.', priceLabel: 'A partir de R$ 990', challenge: 'presenca',
+      iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><path d="M9 13l3 3 5-5"/></svg>'
+    },
+    { id: 'automacao-svc', name: 'Automação', desc: 'Elimine tarefas e conecte ferramentas.', priceLabel: 'A partir de R$ 990', challenge: 'automacao',
+      iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="4" height="4" rx="1"/><rect x="17" y="10" width="4" height="4" rx="1"/><rect x="10" y="3" width="4" height="4" rx="1"/><rect x="10" y="17" width="4" height="4" rx="1"/><path d="M7 12h3M14 12h3M12 7v3M12 14v3"/></svg>'
+    },
+    { id: 'sistema-svc', name: 'Sistema Web', desc: 'Software exclusivo para sua operação.', priceLabel: 'Sob análise técnica', challenge: 'sistema',
+      iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M10 6h4M10 17h4M6 10v4M17 10v4"/></svg>'
+    },
+    { id: 'saas-svc', name: 'SaaS', desc: 'Plataforma com multiusuários e assinatura.', priceLabel: 'Sob análise técnica', challenge: 'produto',
+      iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>'
+    },
+    { id: 'mvp-svc', name: 'MVP', desc: 'Versão mínima para validar sua ideia.', priceLabel: 'Sob análise técnica', challenge: 'produto',
+      iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>'
+    },
+    { id: 'plataforma-svc', name: 'Plataforma', desc: 'Infraestrutura digital escalável e robusta.', priceLabel: 'Sob análise técnica', challenge: 'produto',
+      iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>'
+    },
+    { id: 'outro-svc', name: 'Outra Solução', desc: 'IA, integrações, consultoria e projetos únicos.', priceLabel: 'Sob análise', challenge: 'outro',
+      iconSvg: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h6v6H4z"/><path d="M14 4h6v6h-6z"/><path d="M14 14h6v6h-6z"/><path d="M4 14h6v6H4z"/><path d="M10 7h4M10 17h4M7 10v4M17 10v4"/></svg>'
+    }
+  ];
+
+  // ── Objetivos por desafio (Etapa 2) ──
   const OBJECTIVES_MAP = {
     presenca: [
       { id: 'apresentar', label: 'Apresentar melhor minha empresa' },
@@ -97,7 +110,7 @@ function renderHeroInteractive() {
     ]
   };
 
-  // ── Mapeamento de resultado (desafio + objetivo → solução sugerida + descrição) ──
+  // ── Mapeamento de resultado ──
   const SOLUTIONS_MAP = {
     'presenca:apresentar':       { solution: 'Site institucional estratégico', desc: 'Fortalecer marca, apresentar serviços e gerar confiança com o mercado.' },
     'presenca:gerar-clientes':   { solution: 'Landing Page de conversão', desc: 'Capturar e qualificar leads com uma página focada em resultado comercial.' },
@@ -129,6 +142,7 @@ function renderHeroInteractive() {
   const state = {
     step: 0,
     challenge: null,
+    selectedService: null,
     objective: null,
     context: ''
   };
@@ -137,8 +151,9 @@ function renderHeroInteractive() {
     const saved = sessionStorage.getItem('cogit_diag_state');
     if (saved) {
       const p = JSON.parse(saved);
-      if (p && CHALLENGES.some(c => c.id === p.challenge)) {
-        state.challenge = p.challenge;
+      if (p) {
+        state.challenge = p.challenge || null;
+        state.selectedService = p.selectedService || null;
         state.objective = p.objective || null;
         state.context = p.context || '';
       }
@@ -146,7 +161,7 @@ function renderHeroInteractive() {
   } catch (e) {}
 
   function saveState() {
-    try { sessionStorage.setItem('cogit_diag_state', JSON.stringify({ challenge: state.challenge, objective: state.objective, context: state.context })); } catch (e) {}
+    try { sessionStorage.setItem('cogit_diag_state', JSON.stringify({ challenge: state.challenge, selectedService: state.selectedService, objective: state.objective, context: state.context })); } catch (e) {}
   }
 
   function transitionTo(renderFn, direction = 'next') {
@@ -164,17 +179,17 @@ function renderHeroInteractive() {
     } else { renderFn(); }
   }
 
-  function renderProgressBar(currentStep, total) {
-    const labels = ['Desafio', 'Objetivo', 'Contexto'];
-    return `<div class="hero-progress-bar" role="progressbar" aria-valuenow="${currentStep}" aria-valuemin="1" aria-valuemax="${total}">
+  function renderProgressDots(currentStep, total) {
+    const labels = ['Solução', 'Objetivo', 'Contexto'];
+    return `<div class="hero-diag-dots">
       ${labels.map((label, i) => {
-        const stepNum = i + 1;
-        const isDone = currentStep > stepNum;
-        const isActive = currentStep === stepNum;
-        return `<div class="hero-progress-step ${isDone ? 'is-done' : ''} ${isActive ? 'is-active' : ''}">
-          <div class="hero-progress-dot">${isDone ? '<svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : `<span>${stepNum}</span>`}</div>
-          <span class="hero-progress-label">${label}</span>
-        </div>${i < labels.length - 1 ? `<div class="hero-progress-line${isDone ? ' is-done' : ''}"></div>` : ''}`;
+        const n = i + 1;
+        const isDone = currentStep > n;
+        const isActive = currentStep === n;
+        return `<div class="hero-diag-dot-item ${isDone ? 'is-done' : ''} ${isActive ? 'is-active' : ''}">
+          <div class="hero-diag-dot">${isDone ? '<svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>' : n}</div>
+          <span class="hero-diag-dot-label">${label}</span>
+        </div>${i < labels.length - 1 ? `<div class="hero-diag-dot-line${isDone ? ' is-done' : ''}"></div>` : ''}`;
       }).join('')}
     </div>`;
   }
@@ -185,18 +200,13 @@ function renderHeroInteractive() {
     container.innerHTML = `
       <div class="hero-step-wrapper hero-invite-view">
         <div class="hero-invite-content">
-          <div class="hero-invite-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          </div>
           <div class="hero-invite-text">
-            <p class="hero-invite-eyebrow">DIAGNÓSTICO INICIAL</p>
-            <h2 class="hero-invite-title">Vamos entender<br>seu momento.</h2>
-            <p class="hero-invite-desc">Conte o que sua empresa precisa. A COGIT identifica o melhor caminho tecnológico.</p>
+            <p class="hero-invite-eyebrow">COGIT DIAGNOSTIC</p>
+            <h2 class="hero-invite-title">Qual é o próximo passo digital da sua empresa?</h2>
           </div>
           <button type="button" class="btn-hero-montar btn-hero-start" id="hero-btn-start">
-            Começar diagnóstico <span>→</span>
+            Iniciar diagnóstico <span>→</span>
           </button>
-          <p class="hero-invite-meta">3 perguntas · menos de 1 minuto</p>
         </div>
       </div>
     `;
@@ -204,22 +214,22 @@ function renderHeroInteractive() {
     if (startBtn) startBtn.addEventListener('click', () => transitionTo(renderStep1, 'next'));
   }
 
-  // ── ETAPA 1: Escolha do Desafio ──
+  // ── ETAPA 1: Grid de Serviços (seleção única → define challenge) ──
   function renderStep1() {
     state.step = 1;
 
-    const cardsHtml = CHALLENGES.map(ch => `
-      <div class="hero-challenge-card ${state.challenge === ch.id ? 'is-selected' : ''}"
-           data-id="${ch.id}" role="radio" aria-checked="${state.challenge === ch.id}" tabindex="0">
-        <span class="hero-challenge-icon">${ch.iconSvg}</span>
-        <div class="hero-challenge-body">
-          <span class="hero-challenge-title">${ch.title}</span>
-          <span class="hero-challenge-phrase">${ch.phrase}</span>
+    const cardsHtml = SERVICES_GRID.map(svc => `
+      <button type="button"
+        class="hero-svc-card ${state.selectedService === svc.id ? 'is-selected' : ''}"
+        data-id="${svc.id}" data-challenge="${svc.challenge}"
+        aria-pressed="${state.selectedService === svc.id}"
+      >
+        <div class="hero-svc-check">
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><polyline points="20 6 9 17 4 12"/></svg>
         </div>
-        <div class="hero-challenge-check">
-          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-      </div>
+        <div class="hero-svc-icon">${svc.iconSvg}</div>
+        <span class="hero-svc-name">${svc.name}</span>
+      </button>
     `).join('');
 
     container.innerHTML = `
@@ -227,45 +237,44 @@ function renderHeroInteractive() {
         <div class="hero-interactive-header">
           <div class="hero-discovery-topbar">
             <span class="hero-discovery-tag">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-              DIAGNÓSTICO
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              COGIT DIAGNOSTIC
             </span>
-            ${renderProgressBar(1, 3)}
+            ${renderProgressDots(1, 3)}
           </div>
-          <h2 class="hero-interactive-title">O que sua empresa precisa hoje?</h2>
-          <p class="hero-interactive-desc">Escolha o desafio mais próximo do seu momento atual.</p>
+          <h2 class="hero-interactive-title">O que você precisa construir?</h2>
+          <p class="hero-interactive-desc">Selecione o serviço que representa melhor sua necessidade.</p>
         </div>
 
-        <div class="hero-challenges-list" role="radiogroup" aria-label="Selecione o desafio">
+        <div class="hero-svc-grid" role="group" aria-label="Selecione um serviço">
           ${cardsHtml}
         </div>
 
         <div class="hero-discovery-footer">
           <button type="button" class="btn-hero-back hero-btn-back-invite" id="hero-btn-back-invite">← Voltar</button>
-          <button type="button" class="btn-hero-montar" id="hero-btn-continue-1" ${state.challenge ? '' : 'disabled'}>
-            Continuar <span>→</span>
+          <button type="button" class="btn-hero-montar" id="hero-btn-continue-1" ${state.selectedService ? '' : 'disabled'}>
+            Definir objetivo <span>→</span>
           </button>
         </div>
       </div>
     `;
 
-    // Events
-    const cards = container.querySelectorAll('.hero-challenge-card');
+    const cards = container.querySelectorAll('.hero-svc-card');
     const continueBtn = document.getElementById('hero-btn-continue-1');
     const backBtn = document.getElementById('hero-btn-back-invite');
 
     cards.forEach(card => {
-      const select = () => {
-        state.challenge = card.dataset.id;
-        state.objective = null; // reset downstream
+      card.addEventListener('click', () => {
+        state.selectedService = card.dataset.id;
+        state.challenge = card.dataset.challenge;
+        state.objective = null;
         saveState();
-        cards.forEach(c => { c.classList.remove('is-selected'); c.setAttribute('aria-checked', 'false'); });
+        cards.forEach(c => { c.classList.remove('is-selected'); c.setAttribute('aria-pressed', 'false'); });
         card.classList.add('is-selected');
-        card.setAttribute('aria-checked', 'true');
+        card.setAttribute('aria-pressed', 'true');
         if (continueBtn) continueBtn.removeAttribute('disabled');
-      };
-      card.addEventListener('click', select);
-      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(); } });
+        if (typeof trackEvent === 'function') trackEvent('hero_service_selected', card.dataset.id);
+      });
     });
 
     if (backBtn) backBtn.addEventListener('click', () => transitionTo(renderStep0, 'back'));
@@ -281,6 +290,7 @@ function renderHeroInteractive() {
 
     const challenge = CHALLENGES.find(c => c.id === state.challenge);
     const objectives = OBJECTIVES_MAP[state.challenge] || [];
+    const selectedSvc = SERVICES_GRID.find(s => s.id === state.selectedService);
 
     const chipsHtml = objectives.map(obj => `
       <button type="button" class="hero-objective-chip ${state.objective === obj.id ? 'is-selected' : ''}" data-id="${obj.id}">
@@ -293,20 +303,20 @@ function renderHeroInteractive() {
         <div class="hero-interactive-header">
           <div class="hero-discovery-topbar">
             <span class="hero-discovery-tag">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="12" r="10"/><path d="M12 17h.01"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><circle cx="12" cy="12" r="10"/><path d="M12 17h.01"/></svg>
               OBJETIVO
             </span>
-            ${renderProgressBar(2, 3)}
+            ${renderProgressDots(2, 3)}
           </div>
 
           <div class="hero-challenge-context-bar">
-            <span class="hero-challenge-context-icon">${challenge ? challenge.iconSvg : ''}</span>
-            <span class="hero-challenge-context-name">${challenge ? challenge.title : ''}</span>
+            <span class="hero-challenge-context-icon">${selectedSvc ? selectedSvc.iconSvg : (challenge ? challenge.iconSvg : '')}</span>
+            <span class="hero-challenge-context-name">${selectedSvc ? selectedSvc.name : (challenge ? challenge.title : '')}</span>
             <button type="button" class="hero-btn-edit-step" id="hero-btn-edit-challenge">Alterar</button>
           </div>
 
           <h2 class="hero-interactive-title" style="margin-top:10px;">Qual resultado você busca?</h2>
-          <p class="hero-interactive-desc">Selecione o objetivo que mais se aproxima da sua necessidade.</p>
+          <p class="hero-interactive-desc">Selecione o objetivo mais próximo da sua necessidade.</p>
         </div>
 
         <div class="hero-objective-chips-grid" role="radiogroup" aria-label="Selecione o objetivo">
@@ -316,7 +326,7 @@ function renderHeroInteractive() {
         <div class="hero-discovery-footer" style="margin-top: var(--space-4);">
           <button type="button" class="btn-hero-back" id="hero-btn-back-2">← Voltar</button>
           <button type="button" class="btn-hero-montar" id="hero-btn-continue-2" ${state.objective ? '' : 'disabled'}>
-            Continuar <span>→</span>
+            Contar contexto <span>→</span>
           </button>
         </div>
       </div>
@@ -334,7 +344,6 @@ function renderHeroInteractive() {
         chips.forEach(c => c.classList.remove('is-selected'));
         chip.classList.add('is-selected');
         if (continueBtn) continueBtn.removeAttribute('disabled');
-        if (typeof trackEvent === 'function') trackEvent('hero_objective_selected', chip.dataset.id);
       });
     });
 
@@ -355,10 +364,10 @@ function renderHeroInteractive() {
         <div class="hero-interactive-header">
           <div class="hero-discovery-topbar">
             <span class="hero-discovery-tag">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
               CONTEXTO
             </span>
-            ${renderProgressBar(3, 3)}
+            ${renderProgressDots(3, 3)}
           </div>
           <h2 class="hero-interactive-title">Existe algo específico que devemos entender?</h2>
           <p class="hero-interactive-desc">Campo opcional — nos ajuda a direcionar melhor sua orientação.</p>
@@ -366,13 +375,13 @@ function renderHeroInteractive() {
 
         <div class="hero-context-field">
           <textarea id="hero-context-input" class="hero-textarea hero-textarea-lg" rows="4"
-            placeholder="Ex: Hoje controlamos tudo por planilhas e queremos organizar nosso processo de vendas e pós-venda...">${state.context || ''}</textarea>
+            placeholder="Ex: Hoje controlamos tudo por planilhas e queremos organizar nosso processo de vendas...">${state.context || ''}</textarea>
         </div>
 
         <div class="hero-discovery-footer" style="margin-top: var(--space-4);">
           <button type="button" class="btn-hero-back" id="hero-btn-back-3">← Voltar</button>
           <button type="button" class="btn-hero-montar" id="hero-btn-finalize">
-            Finalizar diagnóstico <span>→</span>
+            Gerar diagnóstico <span>→</span>
           </button>
         </div>
       </div>
@@ -399,11 +408,11 @@ function renderHeroInteractive() {
           <div class="hero-analyzing-icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
           </div>
-          <p class="hero-analyzing-label">Analisando seu cenário...</p>
+          <p class="hero-analyzing-label">Identificando seu cenário...</p>
           <div class="hero-analyzing-checks">
             <div class="hero-analyzing-check" id="acheck-1">
               <div class="hero-analyzing-check-dot"></div>
-              <span>Desafio identificado</span>
+              <span>Solução identificada</span>
             </div>
             <div class="hero-analyzing-check" id="acheck-2">
               <div class="hero-analyzing-check-dot"></div>
@@ -411,7 +420,7 @@ function renderHeroInteractive() {
             </div>
             <div class="hero-analyzing-check" id="acheck-3">
               <div class="hero-analyzing-check-dot"></div>
-              <span>Direcionamento tecnológico definido</span>
+              <span>Direcionamento estratégico definido</span>
             </div>
           </div>
         </div>
@@ -427,12 +436,14 @@ function renderHeroInteractive() {
   // ── RESULTADO: Diagnóstico Consultivo ──
   function renderResult() {
     const challenge = CHALLENGES.find(c => c.id === state.challenge);
+    const selectedSvc = SERVICES_GRID.find(s => s.id === state.selectedService);
     const objectives = OBJECTIVES_MAP[state.challenge] || [];
     const objData = objectives.find(o => o.id === state.objective);
     const solution = getSolution(state.challenge, state.objective);
 
     const phone = '5517981568889';
-    let waMsg = `Olá! Fiz um diagnóstico no site da COGIT:\n\n*Desafio:* ${challenge ? challenge.title : state.challenge}\n*Objetivo:* ${objData ? objData.label : state.objective}\n*Solução identificada:* ${solution.solution}`;
+    const svcName = selectedSvc ? selectedSvc.name : (challenge ? challenge.title : state.challenge);
+    let waMsg = `Olá! Fiz um diagnóstico no site da COGIT:\n\n*Solução de interesse:* ${svcName}\n*Objetivo:* ${objData ? objData.label : state.objective}\n*Direcionamento:* ${solution.solution}`;
     if (state.context && state.context.trim()) waMsg += `\n*Contexto:* ${state.context.trim()}`;
     waMsg += `\n\nGostaria de receber uma orientação técnica da equipe COGIT!`;
     const waLink = `https://wa.me/${phone}?text=${encodeURIComponent(waMsg)}`;
@@ -442,7 +453,7 @@ function renderHeroInteractive() {
         <div class="hero-interactive-header">
           <div class="hero-discovery-topbar">
             <span class="hero-discovery-tag hero-discovery-tag--success">
-              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
               DIAGNÓSTICO CONCLUÍDO
             </span>
           </div>
@@ -452,17 +463,25 @@ function renderHeroInteractive() {
 
         <div class="hero-result-card">
           <div class="hero-result-row">
-            <span class="hero-result-label">Sua necessidade</span>
-            <span class="hero-result-value"><span class="hero-result-icon-inline">${challenge ? challenge.iconSvg : ''}</span> ${challenge ? challenge.title : state.challenge}</span>
+            <span class="hero-result-label">Solução selecionada</span>
+            <span class="hero-result-value">
+              <span class="hero-result-icon-inline">${selectedSvc ? selectedSvc.iconSvg : ''}</span>
+              ${svcName}
+            </span>
           </div>
           <div class="hero-result-divider"></div>
           <div class="hero-result-row">
-            <span class="hero-result-label">Possível solução</span>
+            <span class="hero-result-label">Objetivo</span>
+            <span class="hero-result-value">${objData ? objData.label : (state.objective || '—')}</span>
+          </div>
+          <div class="hero-result-divider"></div>
+          <div class="hero-result-row hero-result-row--desc">
+            <span class="hero-result-label">Direção recomendada</span>
             <span class="hero-result-value hero-result-value--accent">${solution.solution}</span>
           </div>
           <div class="hero-result-divider"></div>
           <div class="hero-result-row hero-result-row--desc">
-            <span class="hero-result-label">Objetivo</span>
+            <span class="hero-result-label">Como ajuda</span>
             <span class="hero-result-desc">${solution.desc}</span>
           </div>
           ${state.context && state.context.trim() ? `
@@ -472,18 +491,13 @@ function renderHeroInteractive() {
           </div>` : ''}
         </div>
 
-        <div class="hero-result-commitment">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-          Antes de desenvolver qualquer tecnologia, a COGIT entende o problema.
-        </div>
-
         <div class="hero-summary-actions">
           <a href="${waLink}" target="_blank" rel="noopener noreferrer" class="btn-hero-montar btn-hero-whatsapp" id="hero-btn-whatsapp">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
             Receber orientação da COGIT
           </a>
           <div class="hero-summary-sub-actions">
-            <a href="contato.html" class="hero-sub-link" id="hero-link-form">Ou preencher formulário detalhado →</a>
+            <a href="contato.html" class="hero-sub-link" id="hero-link-form">Ou preencher diagnóstico completo →</a>
             <button type="button" class="hero-btn-restart-flow" id="hero-btn-restart">← Refazer diagnóstico</button>
           </div>
         </div>
@@ -491,15 +505,14 @@ function renderHeroInteractive() {
     `;
 
     const waBtn = document.getElementById('hero-btn-whatsapp');
-    const formLink = document.getElementById('hero-link-form');
     const restartBtn = document.getElementById('hero-btn-restart');
 
     if (waBtn) waBtn.addEventListener('click', () => {
-      if (typeof trackEvent === 'function') trackEvent('hero_whatsapp_conversion', { challenge: state.challenge, objective: state.objective });
+      if (typeof trackEvent === 'function') trackEvent('hero_whatsapp_conversion', { challenge: state.challenge, service: state.selectedService, objective: state.objective });
     });
 
     if (restartBtn) restartBtn.addEventListener('click', () => {
-      state.challenge = null; state.objective = null; state.context = '';
+      state.challenge = null; state.selectedService = null; state.objective = null; state.context = '';
       saveState();
       transitionTo(renderStep0, 'back');
     });
@@ -559,14 +572,14 @@ function updateHomeDynamicRecommendations(flowId) {
         <h3>Site Institucional</h3>
         <p>Estrutura profissional com múltiplas páginas para transmitir credibilidade e autoridade da sua marca.</p>
         <div class="dynamic-rec-card-why"><strong>Por que recomendamos:</strong> Ideal para comunicar seu posicionamento e gerar confiança no mercado.</div>
-        <a href="solucoes/sites-e-landing-pages.html" class="dynamic-rec-card-cta">Entender essa solução <span>→</span></a>
+        <a href="solucoes/sites-institucionais.html" class="dynamic-rec-card-cta">Entender essa solução <span>→</span></a>
       </div>
       <div class="dynamic-rec-card reveal reveal-delay-2">
         <span class="dynamic-rec-card-tag">ALTA CONVERSÃO</span>
         <h3>Landing Page de Vendas</h3>
         <p>Página estratégica pensada para campanhas de tráfego e captura direta de leads qualificados.</p>
         <div class="dynamic-rec-card-why"><strong>Por que recomendamos:</strong> Foco direto em conversão sem pontos de distração para o usuário.</div>
-        <a href="solucoes/sites-e-landing-pages.html" class="dynamic-rec-card-cta">Entender essa solução <span>→</span></a>
+        <a href="solucoes/landing-pages.html" class="dynamic-rec-card-cta">Entender essa solução <span>→</span></a>
       </div>
       <div class="dynamic-rec-card reveal reveal-delay-3">
         <span class="dynamic-rec-card-tag">AUTOMAÇÃO COMERCIAL</span>
@@ -581,8 +594,8 @@ function updateHomeDynamicRecommendations(flowId) {
       <div class="dynamic-rec-card reveal reveal-delay-1" style="border-color: rgba(74, 61, 219, 0.4);">
         <span class="dynamic-rec-card-tag" style="background: var(--purple); color: #fff;">RECOMENDADO</span>
         <h3>Sistema Personalizado</h3>
-        <p>Software desenvolvido exatamente para o fluxo de trabalho, regras e processos da sua equipe.</p>
-        <div class="dynamic-rec-card-why"><strong>Por que recomendamos:</strong> Centraliza a operação e elimina as falhas de planilhas e sistemas engessados.</div>
+        <p>Software desenvolvido sob medida para as regras operacionais da sua empresa.</p>
+        <div class="dynamic-rec-card-why"><strong>Por que recomendamos:</strong> Elimina gargalos de planilhas e softwares genéricos engessados.</div>
         <a href="solucoes/sistemas-personalizados.html" class="dynamic-rec-card-cta">Entender essa solução <span>→</span></a>
       </div>
       <div class="dynamic-rec-card reveal reveal-delay-2">
@@ -590,7 +603,7 @@ function updateHomeDynamicRecommendations(flowId) {
         <h3>Painel Administrativo</h3>
         <p>Controle de permissões, perfis de usuários e relatórios operacionais consolidados.</p>
         <div class="dynamic-rec-card-why"><strong>Por que recomendamos:</strong> Garante segurança de dados e governança interna.</div>
-        <a href="solucoes/sistemas-personalizados.html" class="dynamic-rec-card-cta">Entender essa solução <span>→</span></a>
+        <a href="solucoes/plataformas-e-outras-solucoes.html" class="dynamic-rec-card-cta">Entender essa solução <span>→</span></a>
       </div>
       <div class="dynamic-rec-card reveal reveal-delay-3">
         <span class="dynamic-rec-card-tag">CONECTIVIDADE</span>
@@ -645,7 +658,7 @@ function updateHomeDynamicRecommendations(flowId) {
         <h3>Estruturação de Canais</h3>
         <p>Sites e canais de contato pensados para aumentar autoridade e gerar oportunidades comerciais.</p>
         <div class="dynamic-rec-card-why"><strong>Por que recomendamos:</strong> Garante que seu negócio seja encontrado e compreendido com clareza.</div>
-        <a href="solucoes/sites-e-landing-pages.html" class="dynamic-rec-card-cta">Entender essa solução <span>→</span></a>
+        <a href="solucoes/sites-institucionais.html" class="dynamic-rec-card-cta">Entender essa solução <span>→</span></a>
       </div>
     `;
   }
@@ -804,12 +817,12 @@ function renderPricing() {
   }).join('');
 }
 
-// ── Render Cases ──
+// ── Render Cases & Projects (Cards Retangulares sem imagem e sem chips de linguagem) ──
 function renderCases() {
   const container = document.getElementById('cases-grid');
   if (!container) return;
 
-  if (!casesData.length) {
+  if (!casesData || !casesData.length) {
     container.innerHTML = `
       <div class="cases-empty">
         <h3>Projetos em desenvolvimento</h3>
@@ -822,22 +835,41 @@ function renderCases() {
   const isSubfolder = window.location.pathname.includes('/projetos') || window.location.pathname.includes('/solucoes');
   const targetUrl = isSubfolder ? '../contato.html' : 'contato.html';
 
-  container.innerHTML = casesData.map((c, i) => `
-    <a href="${targetUrl}" class="case-card reveal reveal-delay-${(i % 2) + 1}" id="case-${c.id}">
-      <div class="case-card-image">
-        <img src="${c.image}" alt="${c.title}" loading="lazy">
-        <div class="case-card-overlay"></div>
-      </div>
-      <div class="case-card-body">
-        <span class="case-card-segment">${c.segment}</span>
-        <h3>${c.title}</h3>
-        <p>${c.solution}</p>
-        <div class="case-card-techs">
-          ${c.technologies.map(t => `<span class="case-card-tech">${t}</span>`).join('')}
+  container.innerHTML = casesData.map((c, i) => {
+    const delayClass = `reveal-delay-${(i % 3) + 1}`;
+    
+    return `
+      <div class="case-card ${delayClass}" id="case-${c.id}">
+        <div class="case-card-header">
+          <span class="case-card-tag">
+            <span class="case-status-pulse"></span>
+            ${c.statusTag || 'PRODUTO EM EVOLUÇÃO'}
+          </span>
+          <span class="case-card-segment">${c.segment}</span>
         </div>
+
+        <h3 class="case-card-title">${c.title}</h3>
+        <p class="case-card-desc">${c.solution}</p>
+        
+        ${c.highlights && c.highlights.length ? `
+          <div class="case-card-highlights-box">
+            <ul class="case-card-highlights">
+              ${c.highlights.map(h => `
+                <li>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  <span>${h}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+        ` : ''}
+
+        <a href="${targetUrl}" class="case-card-cta">
+          Entender essa solução <span>→</span>
+        </a>
       </div>
-    </a>
-  `).join('');
+    `;
+  }).join('');
 }
 
 // ── Render Impact Grid ──
@@ -853,44 +885,63 @@ function renderImpact() {
   `).join('');
 }
 
-// ── Render FAQ ──
+// ── Render & Initialize FAQ ──
 function renderFAQ() {
   const container = document.getElementById('faq-list');
-  if (!container || !faqData.length) return;
-
-  container.innerHTML = faqData.map((item, i) => `
-    <div class="faq-item" id="faq-${i}">
-      <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-${i}">
-        <span>${item.question}</span>
-        <span class="faq-icon">${getIcon('plus')}</span>
-      </button>
-      <div class="faq-answer" id="faq-answer-${i}" role="region">
-        <div class="faq-answer-inner">
-          ${item.answer}
+  // Only render if container exists and is empty or specifically meant for dynamic faqData
+  if (container && typeof faqData !== 'undefined' && faqData.length && container.children.length === 0) {
+    container.innerHTML = faqData.map((item, i) => `
+      <div class="faq-item" id="faq-${i}">
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-answer-${i}">
+          <span>${item.question}</span>
+          <span class="faq-icon faq-icon-plus">${getIcon('plus')}</span>
+        </button>
+        <div class="faq-answer" id="faq-answer-${i}" role="region">
+          <div class="faq-answer-inner">
+            ${item.answer}
+          </div>
         </div>
       </div>
-    </div>
-  `).join('');
+    `).join('');
+  }
 
-  // FAQ toggle handlers
-  container.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.parentElement;
-      const answer = item.querySelector('.faq-answer');
-      const isOpen = item.classList.contains('is-open');
+  // Bind click handlers for all FAQ lists across the site
+  initFaqAccordions();
+}
 
-      // Close all others
-      container.querySelectorAll('.faq-item').forEach(fi => {
-        fi.classList.remove('is-open');
-        fi.querySelector('.faq-answer').style.maxHeight = null;
-        fi.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+function initFaqAccordions() {
+  const faqLists = document.querySelectorAll('.faq-list');
+  faqLists.forEach(list => {
+    list.querySelectorAll('.faq-question').forEach(btn => {
+      if (btn.dataset.faqBound === 'true') return;
+      btn.dataset.faqBound = 'true';
+
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const item = btn.closest('.faq-item');
+        if (!item) return;
+
+        const answer = item.querySelector('.faq-answer');
+        if (!answer) return;
+
+        const isOpen = item.classList.contains('is-open');
+
+        // Close all other items in the same FAQ list
+        list.querySelectorAll('.faq-item').forEach(fi => {
+          fi.classList.remove('is-open');
+          const ans = fi.querySelector('.faq-answer');
+          if (ans) ans.style.maxHeight = null;
+          const qBtn = fi.querySelector('.faq-question');
+          if (qBtn) qBtn.setAttribute('aria-expanded', 'false');
+        });
+
+        // Toggle current item
+        if (!isOpen) {
+          item.classList.add('is-open');
+          answer.style.maxHeight = (answer.scrollHeight + 30) + 'px';
+          btn.setAttribute('aria-expanded', 'true');
+        }
       });
-
-      if (!isOpen) {
-        item.classList.add('is-open');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-        btn.setAttribute('aria-expanded', 'true');
-      }
     });
   });
 }

@@ -183,7 +183,7 @@ const solutionsGroupsData = [
     id: 'atrair-converter',
     title: 'Atrair e converter',
     description: 'Para empresas que precisam melhorar presença, posicionamento e geração de oportunidades.',
-    services: ['sites-institucionais', 'landing-pages']
+    services: ['cogit-start', 'sites-institucionais', 'landing-pages']
   },
   {
     id: 'ganhar-eficiencia',
@@ -270,6 +270,18 @@ const servicesData = [
     customAnalysis: true
   },
   {
+    id: 'cogit-start',
+    title: 'COGIT Start',
+    description: 'Soluções digitais pré-estruturadas e adaptadas à sua marca. Portfólios, Landing Pages e Sites com entrega ágil a partir de 5 dias úteis.',
+    icon: 'zap',
+    slug: 'cogit-start',
+    tag: 'ÁGIL & ACESSÍVEL',
+    basePrice: 790,
+    priceType: 'startingAt',
+    priceNote: 'Portfólios (R$ 790), Landing Pages (R$ 990) e Sites (R$ 1.990).',
+    customAnalysis: false
+  },
+  {
     id: 'sites-institucionais',
     title: 'Sites Institucionais',
     description: 'Construa uma presença digital profissional capaz de comunicar valor, posicionamento e confiança.',
@@ -340,7 +352,7 @@ const plansData = [
     primaryCta: 'Quero melhorar minha presença →',
     primaryCtaPreselect: ['site-institucional'],
     secondaryCta: 'Ver soluções de presença',
-    secondaryCtaLink: '/solucoes/sites-e-landing-pages.html',
+    secondaryCtaLink: '/solucoes/sites-institucionais.html',
     featured: false,
     cardType: 'neutral'
   },
@@ -570,21 +582,56 @@ const impactData = [
 ];
 
 
-// ── Cases Data ──
+// ── Cases & Projects Data ──
 const casesData = [
-  // Add real cases here following the structure:
-  // {
-  //   id: 'project-name',
-  //   title: 'Project Name',
-  //   segment: 'Segment',
-  //   context: 'Brief context',
-  //   problem: 'Brief problem description',
-  //   solution: 'Brief solution description',
-  //   technologies: ['Tech1', 'Tech2'],
-  //   result: 'Key result/metric',
-  //   image: 'assets/images/case-project.webp',
-  //   slug: 'project-name'
-  // }
+  {
+    id: 'wavetype',
+    title: 'WaveType',
+    segment: 'EdTech / Educação Digital',
+    status: 'Em desenvolvimento',
+    statusTag: 'PRODUTO EM EVOLUÇÃO',
+    solution: 'Plataforma digital para aprendizado de datilografia e ganho de velocidade e precisão na escrita, com gestão integrada de turmas e alunos para professores e modo individual.',
+    highlights: [
+      'Professores podem criar turmas e cadastrar alunos',
+      'Acompanhamento de evolução e métricas de digitação',
+      'Ambiente completo para treino e prática individual'
+    ],
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'Node.js', 'WebSockets'],
+    image: 'assets/images/case-wavetype.jpg',
+    ctaText: 'Entender arquitetura'
+  },
+  {
+    id: 'nexus',
+    title: 'Nexus',
+    segment: 'Sustentabilidade & B2B',
+    status: 'Em desenvolvimento',
+    statusTag: 'PRODUTO EM EVOLUÇÃO',
+    solution: 'Plataforma web para gestão sustentável de resíduos recicláveis, conectando empresas geradoras e compradores em um ambiente digital centralizado com gestão de pedidos e dashboards.',
+    highlights: [
+      'Gestão de pedidos e negociações diretas',
+      'Controle operacional e rastreabilidade de resíduos',
+      'Dashboards estratégicos e centralização de dados'
+    ],
+    technologies: ['HTML5', 'CSS3', 'JavaScript', 'PHP', 'SQL'],
+    image: 'assets/images/case-nexus.jpg',
+    ctaText: 'Entender arquitetura'
+  },
+  {
+    id: 'trivium-finance',
+    title: 'Trivium Finance',
+    segment: 'Fintech / Gestão Financeira',
+    status: 'Em desenvolvimento',
+    statusTag: 'PRODUTO EM EVOLUÇÃO',
+    solution: 'Plataforma digital voltada para organização e planejamento financeiro pessoal, integrando assistente de inteligência artificial, notícias de mercado, calendário econômico e rastreamento de criptoativos.',
+    highlights: [
+      'Calendário econômico e notícias financeiras em tempo real',
+      'Assistente conversacional com Inteligência Artificial',
+      'Acompanhamento de ativos digitais e criptomoedas (BTC, ETH)'
+    ],
+    technologies: ['JavaScript', 'APIs Financeiras', 'IA Integrada', 'HTML5', 'CSS3', 'Node.js'],
+    image: 'assets/images/case-trivium.jpg',
+    ctaText: 'Entender arquitetura'
+  }
 ];
 
 
@@ -673,9 +720,11 @@ const budgetRanges = [
 
 // ── WhatsApp Quick Options ──
 const whatsappOptions = [
-  { label: 'Quero criar um site', message: 'Olá! Gostaria de criar um site.' },
-  { label: 'Quero automatizar um processo', message: 'Olá! Gostaria de automatizar um processo.' },
-  { label: 'Quero criar um sistema', message: 'Olá! Gostaria de criar um sistema.' },
-  { label: 'Tenho uma ideia de produto', message: 'Olá! Tenho uma ideia de produto digital.' },
-  { label: 'Outro', message: 'Olá! Gostaria de conversar sobre meu projeto.' }
+  { label: 'Landing Page', message: 'Olá, tenho interesse em criar uma Landing Page com a COGIT.' },
+  { label: 'Site Institucional', message: 'Olá, gostaria de entender sobre desenvolvimento de Site Institucional.' },
+  { label: 'Solução Personalizada / Sistema', message: 'Olá, gostaria de conversar sobre uma solução personalizada.' },
+  { label: 'COGIT Start (Pacote Rápido)', message: 'Olá, gostaria de entender sobre os pacotes COGIT Start.' },
+  { label: 'Automação de Processos', message: 'Olá, gostaria de automatizar processos na minha empresa com a COGIT.' },
+  { label: 'Produto Digital / SaaS / MVP', message: 'Olá, tenho uma ideia de produto digital / SaaS e quero estruturar com a COGIT.' },
+  { label: 'Outro assunto', message: 'Olá, gostaria de conversar sobre meu projeto com a COGIT.' }
 ];

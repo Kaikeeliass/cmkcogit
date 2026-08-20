@@ -5,42 +5,45 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize all dynamic components
-  initComponents();
+  if (typeof initComponents === 'function') initComponents();
+
+  // Initialize FAQ Accordions (universal)
+  if (typeof initFaqAccordions === 'function') initFaqAccordions();
 
   // Initialize configurator
-  initConfigurator();
+  if (typeof initConfigurator === 'function') initConfigurator();
 
   // Initialize header (sticky + mobile menu)
-  initHeader();
+  if (typeof initHeader === 'function') initHeader();
 
   // Initialize animations (scroll reveals, counters)
-  initAnimations();
+  if (typeof initAnimations === 'function') initAnimations();
 
   // Initialize form validation
-  initForm();
+  if (typeof initForm === 'function') initForm();
 
   // Contact Hub (ex-WhatsApp float)
-  initContactHub();
+  if (typeof initContactHub === 'function') initContactHub();
 
   // Initialize mobile fixed CTA
-  initMobileFixedCTA();
+  if (typeof initMobileFixedCTA === 'function') initMobileFixedCTA();
 
   // Initialize Analytics (respects cookie consent)
   if (typeof siteConfig !== 'undefined' && siteConfig.requireCookieConsent) {
-    initCookieBanner();
+    if (typeof initCookieBanner === 'function') initCookieBanner();
     // If already consented, load analytics
     if (localStorage.getItem('cogit_cookie_consent') === 'accepted') {
-      initAnalytics();
-      bindAnalyticsEvents();
+      if (typeof initAnalytics === 'function') initAnalytics();
+      if (typeof bindAnalyticsEvents === 'function') bindAnalyticsEvents();
     }
   } else {
     // No consent required — load directly
-    initAnalytics();
-    bindAnalyticsEvents();
+    if (typeof initAnalytics === 'function') initAnalytics();
+    if (typeof bindAnalyticsEvents === 'function') bindAnalyticsEvents();
   }
 
   // Set response time text from config
-  initResponseTime();
+  if (typeof initResponseTime === 'function') initResponseTime();
 });
 
 // ── Contact Hub (ex-WhatsApp Float) ──
